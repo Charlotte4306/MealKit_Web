@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="vi" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MealKit Việt – Nông Sản Sạch, Bữa Ăn Ngon</title>
+    <meta
+      name="description"
+      content="Gói nguyên liệu sơ chế sẵn từ nông sản sạch, giao tận nhà – nấu ngon chỉ trong 30 phút."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <a href="index.html" class="navbar__logo">
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 36 36"
+            fill="none"
+            aria-label="MealKit Việt logo"
+          >
+            <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
+            <path
+              d="M10 22 Q14 12 18 18 Q22 24 26 14"
+              stroke="#fff"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+            <circle cx="18" cy="10" r="2.5" fill="#95d5b2" />
+          </svg>
+          <span>MealKit <em>Việt</em></span>
+        </a>
+        <nav class="navbar__links" id="navLinks">
+          <a href="index.html" class="active">Trang chủ</a>
+          <a href="products.html">Thực đơn</a>
+          <a href="about.html">Về chúng tôi</a>
+          <a href="blog.html">Công thức</a>
+          <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="navbar__actions">
+          <a href="cart.html" class="btn-cart" aria-label="Giỏ hàng">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </a>
+          <a href="login.html" class="btn btn--outline">Đăng nhập</a>
+          <a href="register.html" class="btn btn--primary">Đăng ký</a>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__bg">
+        <img
+          src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1400&q=80"
+          alt="Bữa ăn tươi ngon từ nông sản sạch"
+          width="1400"
+          height="800"
+          loading="eager"
+        />
+        <div class="hero__overlay"></div>
+      </div>
+      <div class="container hero__content">
+        <div class="hero__badge fade-in">🌿 100% Nông sản sạch Việt Nam</div>
+        <h1 class="hero__title fade-in">
+          Nấu ngon mỗi ngày<br /><em>chỉ trong 30 phút</em>
+        </h1>
+        <p class="hero__desc fade-in">
+          Gói nguyên liệu sơ chế sẵn, đầy đủ gia vị, kèm công thức chi tiết —
+          giao tận nhà mỗi sáng.
+        </p>
+        <div class="hero__cta fade-in">
+          <a href="products.html" class="btn btn--primary btn--lg"
+            >Xem thực đơn tuần này</a
+          >
+          <a href="about.html" class="btn btn--ghost btn--lg">Tìm hiểu thêm</a>
+        </div>
+        <div class="hero__stats fade-in">
+          <div class="stat"><strong>2,400+</strong><span>Khách hàng</span></div>
+          <div class="stat__divider"></div>
+          <div class="stat"><strong>120+</strong><span>Món ăn</span></div>
+          <div class="stat__divider"></div>
+          <div class="stat"><strong>15+</strong><span>Vùng nông sản</span></div>
+        </div>
+      </div>
+      <div class="hero__scroll-hint">
+        <span>Cuộn xuống</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+      <div class="container trust-bar__inner">
+        <div class="trust-item reveal">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <span>Kiểm định an toàn thực phẩm</span>
+        </div>
+        <div class="trust-item reveal">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span>Giao hàng trước 8 giờ sáng</span>
+        </div>
+        <div class="trust-item reveal">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          <span>Nguyên liệu từ nông trại đối tác</span>
+        </div>
+        <div class="trust-item reveal">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
+            />
+          </svg>
+          <span>Hoàn tiền nếu không hài lòng</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section products-section" id="products">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag">Thực đơn nổi bật</span>
+          <h2 class="section__title">Gói Meal Kit <em>được yêu thích</em></h2>
+          <p>
+            Được lựa chọn kỹ từ đầu bếp chuyên nghiệp, phù hợp cho cả gia đình.
+          </p>
+        </div>
+        <div class="products-filter reveal">
+          <button class="filter-btn active" data-filter="all">Tất cả</button>
+          <button class="filter-btn" data-filter="family">Gia đình</button>
+          <button class="filter-btn" data-filter="couple">Cặp đôi</button>
+          <button class="filter-btn" data-filter="vegan">Chay</button>
+          <button class="filter-btn" data-filter="quick">
+            Nhanh &lt;20 phút
+          </button>
+        </div>
+        <div class="products-grid" id="productsGrid">
+          <!-- sẽ render bằng JS -->
+        </div>
+        <div class="section__more reveal">
+          <a href="products.html" class="btn btn--outline btn--lg"
+            >Xem tất cả thực đơn →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section how-section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag">Cách hoạt động</span>
+          <h2 class="section__title">Chỉ <em>3 bước</em> đơn giản</h2>
+        </div>
+        <div class="how-grid">
+          <div class="how-step reveal">
+            <div class="how-step__number">01</div>
+            <div class="how-step__img">
+              <img
+                src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80"
+                alt="Chọn thực đơn"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </div>
+            <h3>Chọn thực đơn</h3>
+            <p>
+              Duyệt qua hơn 120 món ăn Việt, lọc theo khẩu vị, số người và thời
+              gian nấu.
+            </p>
+          </div>
+          <div class="how-step reveal">
+            <div class="how-step__number">02</div>
+            <div class="how-step__img">
+              <img
+                src="https://images.unsplash.com/photo-1595475207225-428b62bda831?w=400&q=80"
+                alt="Nhận nguyên liệu"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </div>
+            <h3>Nhận nguyên liệu</h3>
+            <p>
+              Nguyên liệu sơ chế sẵn, chia đúng khẩu phần, kèm túi gia vị và
+              công thức in sẵn.
+            </p>
+          </div>
+          <div class="how-step reveal">
+            <div class="how-step__number">03</div>
+            <div class="how-step__img">
+              <img
+                src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80"
+                alt="Nấu và thưởng thức"
+                width="400"
+                height="300"
+                loading="lazy"
+              />
+            </div>
+            <h3>Nấu & thưởng thức</h3>
+            <p>
+              Theo từng bước hướng dẫn, nấu xong trong 30 phút và tận hưởng bữa
+              ăn cùng gia đình.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORIGIN SECTION -->
+    <section class="section origin-section">
+      <div class="container origin-section__inner">
+        <div class="origin-section__images reveal">
+          <img
+            class="origin-img origin-img--main"
+            src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80"
+            alt="Nông trại sạch"
+            width="600"
+            height="500"
+            loading="lazy"
+          />
+          <img
+            class="origin-img origin-img--sub"
+            src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=300&q=80"
+            alt="Rau củ tươi"
+            width="300"
+            height="250"
+            loading="lazy"
+          />
+        </div>
+        <div class="origin-section__content reveal">
+          <span class="section__tag">Nguồn gốc rõ ràng</span>
+          <h2 class="section__title">
+            Từ <em>nông trại</em><br />đến bàn ăn của bạn
+          </h2>
+          <p>
+            Chúng tôi hợp tác trực tiếp với hơn 15 nông trại đạt chuẩn VietGAP
+            trên khắp Việt Nam — từ rau củ Đà Lạt, gạo ST25 Sóc Trăng, đến hải
+            sản tươi Hải Phòng.
+          </p>
+          <ul class="origin-list">
+            <li>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Không thuốc trừ sâu, không tăng trưởng
+            </li>
+            <li>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Thu hoạch trong ngày, giao trong 24h
+            </li>
+            <li>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              QR code truy xuất nguồn gốc từng gói
+            </li>
+            <li>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              Chứng nhận VietGAP, GlobalGAP
+            </li>
+          </ul>
+          <a href="about.html" class="btn btn--primary"
+            >Xem nông trại đối tác →</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials-section">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__tag">Khách hàng nói gì</span>
+          <h2 class="section__title">Hơn 2,400 gia đình <em>tin dùng</em></h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>
+              "Trước đây mình hay mua rau ngoài chợ, không biết nguồn gốc. Dùng
+              MealKit Việt mình yên tâm hơn hẳn, nguyên liệu sạch, công thức dễ
+              làm theo."
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/48?img=47"
+                alt="Nguyễn Thị Lan"
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <div>
+                <strong>Nguyễn Thị Lan</strong
+                ><span>Hà Nội · Khách hàng 8 tháng</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="stars">★★★★★</div>
+            <p>
+              "Bận rộn cả ngày, tối về chỉ mất 25 phút là có bữa ăn ngon cho 2
+              vợ chồng. Gia vị đi kèm ngon hơn tưởng tượng nhiều!"
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/48?img=12"
+                alt="Trần Minh Khoa"
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <div>
+                <strong>Trần Minh Khoa</strong
+                ><span>TP.HCM · Khách hàng 5 tháng</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal">
+            <div class="stars">★★★★☆</div>
+            <p>
+              "Giao hàng đúng giờ, đóng gói cẩn thận. Mình thích nhất là có QR
+              quét ra được nông trại trồng rau — rất minh bạch!"
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/48?img=32"
+                alt="Phạm Thu Hà"
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+              <div>
+                <strong>Phạm Thu Hà</strong
+                ><span>Hải Phòng · Khách hàng 3 tháng</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner reveal">
+      <div class="cta-banner__bg">
+        <img
+          src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=1400&q=80"
+          alt="Bữa ăn gia đình"
+          width="1400"
+          height="500"
+          loading="lazy"
+        />
+        <div class="cta-banner__overlay"></div>
+      </div>
+      <div class="container cta-banner__content">
+        <h2>Bắt đầu ngay hôm nay</h2>
+        <p>
+          Đăng ký gói đầu tiên — miễn phí giao hàng và giảm 20% cho đơn hàng thử
+          nghiệm.
+        </p>
+        <a href="register.html" class="btn btn--white btn--lg"
+          >Đăng ký dùng thử →</a
+        >
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
+              <path
+                d="M10 22 Q14 12 18 18 Q22 24 26 14"
+                stroke="#fff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                fill="none"
+              />
+              <circle cx="18" cy="10" r="2.5" fill="#95d5b2" />
+            </svg>
+            <span>MealKit <em>Việt</em></span>
+          </a>
+          <p>
+            Gói nguyên liệu sơ chế sẵn từ nông sản sạch — nấu ngon, sống khoẻ
+            mỗi ngày.
+          </p>
+          <div class="footer__social">
+            <a href="#" aria-label="Facebook"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"
+                /></svg
+            ></a>
+            <a href="#" aria-label="Instagram"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg
+            ></a>
+            <a href="#" aria-label="TikTok"
+              ><svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"
+                /></svg
+            ></a>
+          </div>
+        </div>
+        <div class="footer__links">
+          <h4>Sản phẩm</h4>
+          <a href="products.html">Thực đơn tuần này</a>
+          <a href="products.html?cat=family">Gói gia đình</a>
+          <a href="products.html?cat=couple">Gói cặp đôi</a>
+          <a href="products.html?cat=vegan">Gói chay</a>
+        </div>
+        <div class="footer__links">
+          <h4>Công ty</h4>
+          <a href="about.html">Về chúng tôi</a>
+          <a href="blog.html">Blog công thức</a>
+          <a href="about.html#farms">Nông trại đối tác</a>
+          <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="footer__links">
+          <h4>Hỗ trợ</h4>
+          <a href="#">Câu hỏi thường gặp</a>
+          <a href="#">Chính sách đổi trả</a>
+          <a href="#">Chính sách giao hàng</a>
+          <a href="#">Điều khoản sử dụng</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2025 MealKit Việt. Tất cả quyền được bảo lưu.</p>
+        <p>Được làm với ❤️ tại Việt Nam</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

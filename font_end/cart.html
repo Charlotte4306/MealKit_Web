@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giỏ hàng – MealKit Việt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
+  <body>
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <a href="index.html" class="navbar__logo">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
+            <path
+              d="M10 22 Q14 12 18 18 Q22 24 26 14"
+              stroke="#fff"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+            <circle cx="18" cy="10" r="2.5" fill="#95d5b2" />
+          </svg>
+          <span>MealKit <em>Việt</em></span>
+        </a>
+        <nav class="navbar__links" id="navLinks">
+          <a href="index.html">Trang chủ</a>
+          <a href="products.html">Thực đơn</a>
+          <a href="about.html">Về chúng tôi</a>
+          <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="navbar__actions">
+          <a
+            href="cart.html"
+            class="btn-cart active-page"
+            aria-label="Giỏ hàng"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </a>
+          <a href="login.html" class="btn btn--outline">Đăng nhập</a>
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="cart-page">
+      <div class="container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="index.html">Trang chủ</a>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+          <span>Giỏ hàng</span>
+        </nav>
+
+        <!-- Steps -->
+        <div class="checkout-steps">
+          <div class="step active" data-step="1">
+            <div class="step__dot">1</div>
+            <span>Giỏ hàng</span>
+          </div>
+          <div class="step__line"></div>
+          <div class="step" data-step="2">
+            <div class="step__dot">2</div>
+            <span>Thông tin</span>
+          </div>
+          <div class="step__line"></div>
+          <div class="step" data-step="3">
+            <div class="step__dot">3</div>
+            <span>Thanh toán</span>
+          </div>
+        </div>
+
+        <!-- Empty cart -->
+        <div class="cart-empty" id="cartEmpty" style="display: none">
+          <svg
+            width="80"
+            height="80"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+          >
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+          </svg>
+          <h2>Giỏ hàng trống</h2>
+          <p>Bạn chưa thêm món nào vào giỏ hàng. Khám phá thực đơn ngay nào!</p>
+          <a href="products.html" class="btn btn--primary btn--lg"
+            >Xem thực đơn →</a
+          >
+        </div>
+
+        <!-- Cart content -->
+        <div class="cart-layout" id="cartContent">
+          <div class="cart-items">
+            <div class="cart-items__header">
+              <h2>Giỏ hàng của bạn (<span id="itemCount">0</span> món)</h2>
+              <button class="clear-cart" id="clearCartBtn">Xóa tất cả</button>
+            </div>
+            <div id="cartItemsList"></div>
+          </div>
+
+          <!-- ORDER SUMMARY -->
+          <aside class="order-summary">
+            <h3>Tóm tắt đơn hàng</h3>
+
+            <div class="summary-lines">
+              <div class="summary-line">
+                <span>Tạm tính</span>
+                <span id="subtotal">0đ</span>
+              </div>
+              <div class="summary-line">
+                <span>Phí giao hàng</span>
+                <span id="shippingFee" class="text-green">Miễn phí</span>
+              </div>
+              <div
+                class="summary-line discount-line"
+                id="discountLine"
+                style="display: none"
+              >
+                <span>Giảm giá</span>
+                <span id="discountAmount" class="text-orange">-0đ</span>
+              </div>
+            </div>
+
+            <div class="coupon-box">
+              <input
+                type="text"
+                id="couponInput"
+                placeholder="Nhập mã giảm giá..."
+              />
+              <button class="btn btn--outline" id="applyCoupon">Áp dụng</button>
+            </div>
+            <p class="coupon-hint">
+              Thử mã: <strong>MEALKIT20</strong> (giảm 20%)
+            </p>
+
+            <div class="summary-total">
+              <span>Tổng cộng</span>
+              <strong id="totalPrice">0đ</strong>
+            </div>
+
+            <a
+              href="checkout.html"
+              class="btn btn--primary btn--block"
+              id="checkoutBtn"
+            >
+              Tiến hành đặt hàng →
+            </a>
+
+            <div class="summary-trust">
+              <div class="trust-mini">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+                Thanh toán an toàn
+              </div>
+              <div class="trust-mini">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Giao trước 8 giờ sáng
+              </div>
+            </div>
+
+            <a href="products.html" class="continue-shopping"
+              >← Tiếp tục mua hàng</a
+            >
+          </aside>
+        </div>
+
+        <!-- You might also like -->
+        <section class="upsell-section" id="upsellSection">
+          <h3>Có thể bạn cũng thích</h3>
+          <div class="products-grid" id="upsellGrid"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo" style="color: #fff">
+            <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+              <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
+              <path
+                d="M10 22 Q14 12 18 18 Q22 24 26 14"
+                stroke="#fff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                fill="none"
+              />
+              <circle cx="18" cy="10" r="2.5" fill="#95d5b2" />
+            </svg>
+            <span>MealKit <em>Việt</em></span>
+          </a>
+          <p>Gói nguyên liệu sơ chế sẵn từ nông sản sạch.</p>
+        </div>
+        <div class="footer__links">
+          <h4>Sản phẩm</h4>
+          <a href="products.html">Thực đơn</a
+          ><a href="products.html?cat=family">Gói gia đình</a>
+        </div>
+        <div class="footer__links">
+          <h4>Công ty</h4>
+          <a href="about.html">Về chúng tôi</a
+          ><a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="footer__links">
+          <h4>Hỗ trợ</h4>
+          <a href="#">FAQ</a><a href="#">Đổi trả</a>
+        </div>
+      </div>
+      <div class="footer__bottom"><p>© 2025 MealKit Việt.</p></div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart-page.js"></script>
+  </body>
+</html>
