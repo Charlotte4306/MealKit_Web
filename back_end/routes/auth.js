@@ -1,17 +1,15 @@
+require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require("express-validator");
 const pool = require("../database/db");
-const db = require("../database/db");
 const authMW = require("../middleware/auth");
 const authMiddleware = authMW.authMiddleware;
 
 const { OAuth2Client } = require("google-auth-library");
 const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
-
-require("dotenv").config();
 
 function genToken(user) {
   return jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, {
@@ -177,15 +175,15 @@ router.post("/google", async (req, res) => {
         const { name, email, picture } = ticket.getPayload();
 
         // Tìm user trong DB, nếu chưa có thì tạo mới
-        const [rows] = await db.query("SELECT * FROM users WHERE email = ?", [email]);
+        const [rows] = await pool.query("SELECT * FROM users WHERE email = ?", [email]);
         let user = rows[0];
 
         if (!user) {
-            const [result] = await db.query(
+            const [result] = await pool.query(
                 "INSERT INTO users (name, email, phone, password, avatar, is_active) VALUES (?,?,?,?,?,?)",
                 [name, email, "", "", picture || "", 1]
             );
-            const [newUser] = await db.query("SELECT * FROM users WHERE id = ?", [result.insertId]);
+            const [newUser] = await pool.query("SELECT * FROM users WHERE id = ?", [result.insertId]);
             user = newUser[0];
         }
 
