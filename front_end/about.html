@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Về chúng tôi – MealKit Việt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+        <a href="index.html" class="navbar__logo">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-label="MealKit Việt logo">
+                <circle cx="18" cy="18" r="18" fill="#2d6a4f"/>
+                <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <circle cx="18" cy="10" r="2.5" fill="#95d5b2"/>
+            </svg>
+            <span>MealKit <em>Việt</em></span>
+        </a>
+        <nav class="navbar__links" id="navLinks">
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html">Thực đơn</a>
+            <a href="about.html" class="active">Về chúng tôi</a>
+            <a href="blog.html">Công thức</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="navbar__actions">
+            <a href="cart.html" class="btn-cart" aria-label="Giỏ hàng">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 01-8 0"/>
+                </svg>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+            <a href="login.html" class="btn btn--outline">Đăng nhập</a>
+            <a href="register.html" class="btn btn--primary">Đăng ký</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main style="padding: 80px 0; min-height: 60vh;">
+    <div class="container">
+        <div class="section__header" style="margin-bottom: 40px;">
+            <span class="section__tag">Câu chuyện của chúng tôi</span>
+            <h1 class="section__title">Về <em>MealKit Việt</em></h1>
+            <p>Chúng tôi tin rằng mỗi bữa ăn gia đình xứng đáng được làm từ nguyên liệu sạch, tươi ngon và rõ nguồn gốc.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px;">
+            <div>
+                <h2 style="margin-bottom: 16px;">Sứ mệnh của chúng tôi</h2>
+                <p style="margin-bottom: 12px;">MealKit Việt ra đời với mục tiêu kết nối trực tiếp nông dân Việt Nam với bàn ăn của từng gia đình — loại bỏ trung gian, đảm bảo độ tươi và giá hợp lý.</p>
+                <p>Chúng tôi hợp tác với hơn <strong>15 nông trại đạt chuẩn VietGAP</strong> trên khắp Việt Nam, từ rau củ Đà Lạt, gạo ST25 Sóc Trăng đến hải sản tươi Hải Phòng.</p>
+            </div>
+            <div>
+                <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=600&q=80"
+                     alt="Nông trại sạch" width="600" height="400" loading="lazy"
+                     style="border-radius: 16px; width: 100%; height: auto;" />
+            </div>
+        </div>
+
+        <div id="farms" style="margin-bottom: 60px;">
+            <h2 style="margin-bottom: 24px; text-align: center;">Nông trại đối tác</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 12px; padding: 24px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🥦</div>
+                    <strong>Nông trại Đà Lạt</strong>
+                    <p style="font-size: 14px; color: #666; margin-top: 4px;">Rau củ quả cao nguyên</p>
+                </div>
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 12px; padding: 24px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🌾</div>
+                    <strong>Sóc Trăng</strong>
+                    <p style="font-size: 14px; color: #666; margin-top: 4px;">Gạo ST25 đặc sản</p>
+                </div>
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 12px; padding: 24px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🐟</div>
+                    <strong>Hải Phòng</strong>
+                    <p style="font-size: 14px; color: #666; margin-top: 4px;">Hải sản tươi sống</p>
+                </div>
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 12px; padding: 24px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🍖</div>
+                    <strong>Đồng Nai</strong>
+                    <p style="font-size: 14px; color: #666; margin-top: 4px;">Thịt sạch VietGAP</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer__inner">
+        <div class="footer__brand">
+            <a href="index.html" class="navbar__logo">
+                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="18" fill="#2d6a4f"/>
+                    <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <circle cx="18" cy="10" r="2.5" fill="#95d5b2"/>
+                </svg>
+                <span>MealKit <em>Việt</em></span>
+            </a>
+            <p>Gói nguyên liệu sơ chế sẵn từ nông sản sạch — nấu ngon, sống khoẻ mỗi ngày.</p>
+        </div>
+        <div class="footer__links">
+            <h4>Sản phẩm</h4>
+            <a href="products.html">Thực đơn tuần này</a>
+            <a href="products.html?cat=family">Gói gia đình</a>
+            <a href="products.html?cat=couple">Gói cặp đôi</a>
+            <a href="products.html?cat=vegan">Gói chay</a>
+        </div>
+        <div class="footer__links">
+            <h4>Công ty</h4>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="blog.html">Blog công thức</a>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="footer__links">
+            <h4>Hỗ trợ</h4>
+            <a href="#">Câu hỏi thường gặp</a>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách giao hàng</a>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <p>© 2026 MealKit Việt. Tất cả quyền được bảo lưu.</p>
+        <p>Được làm với ❤️ tại Việt Nam</p>
+    </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -20,8 +20,8 @@ back_end/uploads/
 coverage/
 .nyc_output/
 back_end/dist/
-font_end/dist/
-font_end/build/
+front_end/dist/
+front_end/build/
 
 # OS / editor files
 .DS_Store
