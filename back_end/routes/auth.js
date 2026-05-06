@@ -4,9 +4,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { body, validationResult } = require("express-validator");
 const pool = require("../database/db");
-
+const db = require("../database/db");
 const authMW = require("../middleware/auth");
 const authMiddleware = authMW.authMiddleware;
+
+const { OAuth2Client } = require("google-auth-library");
+const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 require("dotenv").config();
 
@@ -158,6 +161,47 @@ router.put("/change-password", authMiddleware, async (req, res) => {
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
+});
+
+// POST /api/auth/google
+router.post("/google", async (req, res) => {
+    try {
+        const { id_token } = req.body;
+
+        // Xác minh token với Google
+        const ticket = await googleClient.verifyIdToken({
+            idToken: id_token,
+            audience: process.env.GOOGLE_CLIENT_ID,
+        });
+
+        const { name, email, picture } = ticket.getPayload();
+
+        // Tìm user trong DB, nếu chưa có thì tạo mới
+        const [rows] = await db.query("SELECT * FROM users WHERE email = ?", [email]);
+        let user = rows[0];
+
+        if (!user) {
+            const [result] = await db.query(
+                "INSERT INTO users (name, email, phone, password, avatar, is_active) VALUES (?,?,?,?,?,?)",
+                [name, email, "", "", picture || "", 1]
+            );
+            const [newUser] = await db.query("SELECT * FROM users WHERE id = ?", [result.insertId]);
+            user = newUser[0];
+        }
+
+        // Tạo JWT
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, { expiresIn: "7d" });
+
+        res.json({
+            success: true,
+            token,
+            user: { id: user.id, name: user.name, email: user.email, avatar: user.avatar },
+        });
+
+    } catch (err) {
+        console.error("Google auth error:", err);
+        res.status(401).json({ success: false, message: "Xác thực Google thất bại" });
+    }
 });
 
 module.exports = router;
