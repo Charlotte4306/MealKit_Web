@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Công thức nấu ăn – MealKit Việt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+        <a href="index.html" class="navbar__logo">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <circle cx="18" cy="18" r="18" fill="#2d6a4f"/>
+                <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <circle cx="18" cy="10" r="2.5" fill="#95d5b2"/>
+            </svg>
+            <span>MealKit <em>Việt</em></span>
+        </a>
+        <nav class="navbar__links" id="navLinks">
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html">Thực đơn</a>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="blog.html" class="active">Công thức</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="navbar__actions">
+            <a href="cart.html" class="btn-cart" aria-label="Giỏ hàng">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 01-8 0"/>
+                </svg>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+            <a href="login.html" class="btn btn--outline">Đăng nhập</a>
+            <a href="register.html" class="btn btn--primary">Đăng ký</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main style="padding: 80px 0; min-height: 60vh;">
+    <div class="container">
+        <div class="section__header" style="margin-bottom: 40px;">
+            <span class="section__tag">Chia sẻ từ bếp nhà</span>
+            <h1 class="section__title">Công thức <em>nấu ăn</em></h1>
+            <p>Những công thức đơn giản, ngon miệng từ đầu bếp chuyên nghiệp và cộng đồng MealKit Việt.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+            <article style="background: var(--color-surface, #f9f8f5); border-radius: 16px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=400&q=80"
+                     alt="Canh chua cá lóc" width="400" height="220" loading="lazy"
+                     style="width: 100%; height: 200px; object-fit: cover;" />
+                <div style="padding: 20px;">
+                    <span style="font-size: 12px; color: #2d6a4f; font-weight: 600; text-transform: uppercase;">Món canh</span>
+                    <h3 style="margin: 8px 0;">Canh chua cá lóc miền Nam</h3>
+                    <p style="font-size: 14px; color: #666;">Đậm đà vị chua ngọt tự nhiên từ me và cà chua, thơm mùi ngổ và giá đỗ.</p>
+                    <div style="margin-top: 12px; font-size: 13px; color: #888;">⏱ 30 phút &nbsp;|&nbsp; 👥 4 người</div>
+                </div>
+            </article>
+
+            <article style="background: var(--color-surface, #f9f8f5); border-radius: 16px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=400&q=80"
+                     alt="Bò lúc lắc" width="400" height="220" loading="lazy"
+                     style="width: 100%; height: 200px; object-fit: cover;" />
+                <div style="padding: 20px;">
+                    <span style="font-size: 12px; color: #2d6a4f; font-weight: 600; text-transform: uppercase;">Món xào</span>
+                    <h3 style="margin: 8px 0;">Bò lúc lắc rau củ</h3>
+                    <p style="font-size: 14px; color: #666;">Thịt bò mềm ướp gia vị đặc trưng, xào nhanh lửa lớn với ớt chuông và hành tây.</p>
+                    <div style="margin-top: 12px; font-size: 13px; color: #888;">⏱ 20 phút &nbsp;|&nbsp; 👥 2 người</div>
+                </div>
+            </article>
+
+            <article style="background: var(--color-surface, #f9f8f5); border-radius: 16px; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1595475207225-428b62bda831?w=400&q=80"
+                     alt="Gà kho gừng" width="400" height="220" loading="lazy"
+                     style="width: 100%; height: 200px; object-fit: cover;" />
+                <div style="padding: 20px;">
+                    <span style="font-size: 12px; color: #2d6a4f; font-weight: 600; text-transform: uppercase;">Món kho</span>
+                    <h3 style="margin: 8px 0;">Gà kho gừng sả</h3>
+                    <p style="font-size: 14px; color: #666;">Hương gừng sả nồng ấm, vị ngọt mặn thấm đều, ăn kèm cơm trắng là tuyệt vời.</p>
+                    <div style="margin-top: 12px; font-size: 13px; color: #888;">⏱ 35 phút &nbsp;|&nbsp; 👥 3 người</div>
+                </div>
+            </article>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer__inner">
+        <div class="footer__brand">
+            <a href="index.html" class="navbar__logo">
+                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="18" fill="#2d6a4f"/>
+                    <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <circle cx="18" cy="10" r="2.5" fill="#95d5b2"/>
+                </svg>
+                <span>MealKit <em>Việt</em></span>
+            </a>
+            <p>Gói nguyên liệu sơ chế sẵn từ nông sản sạch — nấu ngon, sống khoẻ mỗi ngày.</p>
+        </div>
+        <div class="footer__links">
+            <h4>Sản phẩm</h4>
+            <a href="products.html">Thực đơn tuần này</a>
+            <a href="products.html?cat=family">Gói gia đình</a>
+            <a href="products.html?cat=couple">Gói cặp đôi</a>
+            <a href="products.html?cat=vegan">Gói chay</a>
+        </div>
+        <div class="footer__links">
+            <h4>Công ty</h4>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="blog.html">Blog công thức</a>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="footer__links">
+            <h4>Hỗ trợ</h4>
+            <a href="#">Câu hỏi thường gặp</a>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách giao hàng</a>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <p>© 2026 MealKit Việt. Tất cả quyền được bảo lưu.</p>
+        <p>Được làm với ❤️ tại Việt Nam</p>
+    </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

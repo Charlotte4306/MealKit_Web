@@ -1,4 +1,4 @@
-//const API = "http://localhost:5000/api";
+const API = "http://localhost:5000/api";
 
 // Lưu / đọc token
 function getToken() {
@@ -66,7 +66,7 @@ async function login(email, password) {
 function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("user");
-  window.location.href = "/index.html";
+  window.location.href = "index.html";
 }
 
 // Chạy khi load trang

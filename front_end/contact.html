@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liên hệ – MealKit Việt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+        <a href="index.html" class="navbar__logo">
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <circle cx="18" cy="18" r="18" fill="#2d6a4f"/>
+                <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                <circle cx="18" cy="10" r="2.5" fill="#95d5b2"/>
+            </svg>
+            <span>MealKit <em>Việt</em></span>
+        </a>
+        <nav class="navbar__links" id="navLinks">
+            <a href="index.html">Trang chủ</a>
+            <a href="products.html">Thực đơn</a>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="blog.html">Công thức</a>
+            <a href="contact.html" class="active">Liên hệ</a>
+        </nav>
+        <div class="navbar__actions">
+            <a href="cart.html" class="btn-cart" aria-label="Giỏ hàng">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                    <line x1="3" y1="6" x2="21" y2="6"/>
+                    <path d="M16 10a4 4 0 01-8 0"/>
+                </svg>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+            <a href="login.html" class="btn btn--outline">Đăng nhập</a>
+            <a href="register.html" class="btn btn--primary">Đăng ký</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main style="padding: 80px 0; min-height: 60vh;">
+    <div class="container">
+        <div class="section__header" style="margin-bottom: 40px;">
+            <span class="section__tag">Chúng tôi luôn lắng nghe</span>
+            <h1 class="section__title">Liên hệ <em>với chúng tôi</em></h1>
+            <p>Có câu hỏi về đơn hàng, sản phẩm hay hợp tác? Hãy để lại tin nhắn — chúng tôi phản hồi trong vòng 24 giờ.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+            <!-- Form liên hệ -->
+            <div>
+                <form id="contactForm" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500;">Họ và tên</label>
+                        <input type="text" placeholder="Nguyễn Văn A" required
+                               style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px;" />
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500;">Email</label>
+                        <input type="email" placeholder="email@example.com" required
+                               style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px;" />
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500;">Số điện thoại</label>
+                        <input type="tel" placeholder="0901 234 567"
+                               style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px;" />
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 6px; font-weight: 500;">Nội dung</label>
+                        <textarea rows="5" placeholder="Nhập nội dung liên hệ..." required
+                                  style="width: 100%; padding: 12px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; resize: vertical;"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary" style="padding: 14px; font-size: 16px;">
+                        Gửi tin nhắn →
+                    </button>
+                    <p id="contactMsg" style="color: #2d6a4f; font-weight: 500;"></p>
+                </form>
+            </div>
+
+            <!-- Thông tin liên hệ -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 16px; padding: 24px;">
+                    <div style="font-size: 28px; margin-bottom: 8px;">📍</div>
+                    <h3 style="margin-bottom: 4px;">Địa chỉ</h3>
+                    <p style="color: #666;">123 Đường Nông Sản Sạch, Quận 1, TP. Hồ Chí Minh</p>
+                </div>
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 16px; padding: 24px;">
+                    <div style="font-size: 28px; margin-bottom: 8px;">📞</div>
+                    <h3 style="margin-bottom: 4px;">Hotline</h3>
+                    <p style="color: #666;">1800 1234 (Miễn phí · 8:00 – 20:00)</p>
+                </div>
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 16px; padding: 24px;">
+                    <div style="font-size: 28px; margin-bottom: 8px;">✉️</div>
+                    <h3 style="margin-bottom: 4px;">Email</h3>
+                    <p style="color: #666;">support@mealkitviet.vn</p>
+                </div>
+                <div style="background: var(--color-surface, #f9f8f5); border-radius: 16px; padding: 24px;">
+                    <div style="font-size: 28px; margin-bottom: 8px;">⏰</div>
+                    <h3 style="margin-bottom: 4px;">Giờ làm việc</h3>
+                    <p style="color: #666;">Thứ 2 – Thứ 7: 8:00 – 20:00<br/>Chủ nhật: 9:00 – 17:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container footer__inner">
+        <div class="footer__brand">
+            <a href="index.html" class="navbar__logo">
+                <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+                    <circle cx="18" cy="18" r="18" fill="#2d6a4f"/>
+                    <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                    <circle cx="18" cy="10" r="2.5" fill="#95d5b2"/>
+                </svg>
+                <span>MealKit <em>Việt</em></span>
+            </a>
+            <p>Gói nguyên liệu sơ chế sẵn từ nông sản sạch — nấu ngon, sống khoẻ mỗi ngày.</p>
+        </div>
+        <div class="footer__links">
+            <h4>Sản phẩm</h4>
+            <a href="products.html">Thực đơn tuần này</a>
+            <a href="products.html?cat=family">Gói gia đình</a>
+            <a href="products.html?cat=couple">Gói cặp đôi</a>
+            <a href="products.html?cat=vegan">Gói chay</a>
+        </div>
+        <div class="footer__links">
+            <h4>Công ty</h4>
+            <a href="about.html">Về chúng tôi</a>
+            <a href="blog.html">Blog công thức</a>
+            <a href="contact.html">Liên hệ</a>
+        </div>
+        <div class="footer__links">
+            <h4>Hỗ trợ</h4>
+            <a href="#">Câu hỏi thường gặp</a>
+            <a href="#">Chính sách đổi trả</a>
+            <a href="#">Chính sách giao hàng</a>
+        </div>
+    </div>
+    <div class="footer__bottom">
+        <p>© 2026 MealKit Việt. Tất cả quyền được bảo lưu.</p>
+        <p>Được làm với ❤️ tại Việt Nam</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        document.getElementById("contactMsg").textContent = "✅ Đã gửi! Chúng tôi sẽ phản hồi trong 24 giờ.";
+        this.reset();
+    });
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

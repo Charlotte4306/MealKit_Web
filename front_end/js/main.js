@@ -37,7 +37,7 @@ async function loadFeaturedProducts() {
     .map(
       (p) => `
     <div class="product-card" onclick="window.location.href='product-detail.html?id=${p.id}'">
-      <img src="${p.image || "https://via.placeholder.com/300x200?text=MealKit"}" alt="${p.name}">
+      <img src="${p.image || "https://picsum.photos/seed/mealkit/300/200"}" alt="${p.name}">
       <div class="product-info">
         ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
         <h3>${p.name}</h3>
