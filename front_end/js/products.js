@@ -1,5 +1,3 @@
-const API = "http://localhost:5000/api";
-
 async function loadProducts(category = "") {
   const url = category
     ? `${API}/products?category=${category}`
