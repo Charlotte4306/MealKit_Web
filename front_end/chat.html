@@ -409,8 +409,8 @@
     </div>
 </footer>
 
-<script src="js/auth.js"></script>
 <script src="js/main.js"></script>
+<script src="js/auth.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -422,12 +422,95 @@
         var _msgs = document.getElementById('chatMessages');
         var _wlc  = document.getElementById('chatWelcome');
 
-        // ── Load danh sách phiên chat ──────────────────────────
+        // ── Load danh sách phiên chat vào sidebar ─────────────
+        async function loadSessions() {
+            var token = localStorage.getItem('token');
+            if (!token) return;
+            try {
+                var res = await fetch(API + '/chat/sessions', {
+                    headers: { 'Authorization': 'Bearer ' + token }
+                });
+                var data = await res.json();
+                if (!data.success) return;
+                renderSessionList(data.data);
+            } catch (e) { console.error('loadSessions error:', e); }
+        }
+
+        function renderSessionList(sessions) {
+            var sidebar = document.querySelector('.chat-sidebar');
+            var existing = document.getElementById('sessionList');
+            if (existing) existing.remove();
+            if (sessions.length === 0) return;
+
+            var ul = document.createElement('div');
+            ul.id = 'sessionList';
+            ul.style.cssText = 'margin-top:12px;';
+
+            var label = document.createElement('p');
+            label.className = 'chat-sidebar__title';
+            label.textContent = 'Lịch sử trò chuyện';
+            ul.appendChild(label);
+
+            sessions.forEach(function (s) {
+                var btn = document.createElement('button');
+                btn.className = 'suggestion-btn';
+                btn.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:8px;';
+                btn.innerHTML = '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">💬 ' + s.title + '</span>'
+                    + '<span style="font-size:10px;color:#9a9790;flex-shrink:0">' + new Date(s.updated_at).toLocaleDateString('vi-VN') + '</span>'
+                    + '<span class="del-session" data-id="' + s.id + '" style="color:#e57373;font-size:14px;padding:2px 4px;flex-shrink:0" title="Xóa">✕</span>';
+
+                // Click vào nút X → xóa phiên
+                btn.querySelector('.del-session').addEventListener('click', async function (e) {
+                    e.stopPropagation(); // không trigger loadSession
+                    if (!confirm('Xóa cuộc trò chuyện này?')) return;
+                    var token = localStorage.getItem('token');
+                    await fetch(API + '/chat/sessions/' + this.dataset.id, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                    if (_sessionId == this.dataset.id) {
+                        // Đang xem phiên này → reset về welcome
+                        _sessionId = null;
+                        Array.from(_msgs.children).forEach(function(c){ if(c!==_wlc) c.remove(); });
+                        _wlc.style.display = 'block';
+                    }
+                    loadSessions(); // refresh sidebar
+                });
+
+                btn.addEventListener('click', function () { loadSession(s.id); });
+                ul.appendChild(btn);
+            });
+
+            // Nút xóa tất cả
+            var clearBtn = document.createElement('button');
+            clearBtn.style.cssText = 'width:100%;padding:8px;background:none;border:1px solid #f5c6c6;border-radius:8px;color:#e57373;font-size:12px;cursor:pointer;margin-top:4px;font-family:inherit;';
+            clearBtn.textContent = '🗑 Xóa toàn bộ lịch sử';
+            clearBtn.addEventListener('click', async function () {
+                if (!confirm('Xóa toàn bộ lịch sử chat?')) return;
+                var token = localStorage.getItem('token');
+                // Xóa từng phiên song song
+                await Promise.all(sessions.map(function(s) {
+                    return fetch(API + '/chat/sessions/' + s.id, {
+                        method: 'DELETE',
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                }));
+                _sessionId = null;
+                Array.from(_msgs.children).forEach(function(c){ if(c!==_wlc) c.remove(); });
+                _wlc.style.display = 'block';
+                loadSessions();
+            });
+            ul.appendChild(clearBtn);
+
+            var divider = sidebar.querySelector('.chat-sidebar__divider');
+            sidebar.insertBefore(ul, divider);
+        }
+
+        // ── Load tin nhắn của 1 phiên ─────────────────────────
         async function loadSession(sessionId) {
             var token = localStorage.getItem('token');
             _sessionId = sessionId;
 
-            // Xóa tin nhắn cũ nhưng GIỮ LẠI _wlc trong DOM
             Array.from(_msgs.children).forEach(function(child) {
                 if (child !== _wlc) child.remove();
             });
@@ -450,98 +533,40 @@
             } catch (e) { console.error('loadSession error:', e); }
         }
 
-        function renderSessionList(sessions) {
-            var sidebar = document.querySelector('.chat-sidebar');
-            var existing = document.getElementById('sessionList');
-            if (existing) existing.remove();
-
-            if (sessions.length === 0) return;
-
-            var ul = document.createElement('div');
-            ul.id = 'sessionList';
-            ul.style.cssText = 'margin-top:12px;';
-
-            var label = document.createElement('p');
-            label.className = 'chat-sidebar__title';
-            label.textContent = 'Lịch sử trò chuyện';
-            ul.appendChild(label);
-
-            sessions.forEach(function (s) {
-                var btn = document.createElement('button');
-                btn.className = 'suggestion-btn';
-                btn.style.cssText = 'display:flex;justify-content:space-between;align-items:center;gap:8px;';
-                btn.innerHTML = '<span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">💬 ' + s.title + '</span>'
-                    + '<span style="font-size:10px;color:#9a9790;flex-shrink:0">' + new Date(s.updated_at).toLocaleDateString('vi-VN') + '</span>';
-
-                btn.addEventListener('click', function () { loadSession(s.id); });
-                ul.appendChild(btn);
-            });
-
-            // Thêm trước nút "Cuộc trò chuyện mới"
-            var divider = sidebar.querySelector('.chat-sidebar__divider');
-            sidebar.insertBefore(ul, divider);
-        }
-
-        // ── Load tin nhắn của 1 phiên ─────────────────────────
-        async function loadSession(sessionId) {
-            var token = localStorage.getItem('token');
-            _sessionId = sessionId;
-            _msgs.innerHTML = '';
-
-            try {
-                var res = await fetch(API + '/chat/sessions/' + sessionId + '/messages', {
-                    headers: { 'Authorization': 'Bearer ' + token }
-                });
-                var data = await res.json();
-                if (!data.success) return;
-                if (data.data.length === 0) {
-                    _msgs.appendChild(_wlc);
-                    _wlc.style.display = 'block';
-                } else {
-                    data.data.forEach(function (m) {
-                        _addMsg(m.content, m.role === 'user' ? 'user' : 'ai');
-                    });
-                }
-            } catch (e) {}
-        }
-
         // ── Tạo phiên mới ─────────────────────────────────────
         async function createSession() {
             var token = localStorage.getItem('token');
             if (!token) {
-                // Chưa đăng nhập → dùng chế độ tạm (không lưu)
                 _sessionId = null;
-                _msgs.innerHTML = '';
-                _msgs.appendChild(_wlc);
+                Array.from(_msgs.children).forEach(function(c){ if(c!==_wlc) c.remove(); });
                 _wlc.style.display = 'block';
                 return;
             }
             try {
-                var res = await fetch(API + '/chat/sessions/', {
+                var res = await fetch(API + '/chat/sessions', {
                     method: 'POST',
                     headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' }
                 });
                 var data = await res.json();
                 if (data.success) {
                     _sessionId = data.sessionId;
-                    _msgs.innerHTML = '';
-                    _msgs.appendChild(_wlc);
+                    Array.from(_msgs.children).forEach(function(c){ if(c!==_wlc) c.remove(); });
                     _wlc.style.display = 'block';
-                    loadSessions(); // refresh sidebar
+                    loadSessions();
                 }
-            } catch (e) {}
+            } catch (e) { console.error('createSession error:', e); }
         }
 
         // ── Gửi tin nhắn ──────────────────────────────────────
         async function _send() {
             var msg = _inp.value.trim();
             if (!msg || _busy) return;
-
-            // Nếu chưa có session thì tạo mới
+            console.log('_sessionId trước khi gửi:', _sessionId); // ← THÊM DÒNG NÀY
             if (!_sessionId) {
                 await createSession();
+                console.log('_sessionId sau createSession:', _sessionId);
                 if (!_sessionId) {
-                    alert('Vui lòng đăng nhập để lưu lịch sử trò chuyện!');
+                    alert('Vui lòng đăng nhập để chat với Mai!');
                     return;
                 }
             }
@@ -556,25 +581,22 @@
 
             try {
                 var token = localStorage.getItem('token');
-
-                var res = await fetch(
-                    API + '/chat/sessions/' + _sessionId + '/send',  // ← endpoint mới
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' + token           // ← thêm token
-                        },
-                        body: JSON.stringify({ message: msg })         // ← KHÔNG gửi history nữa
-                    }
-                );
+                // ✅ Đúng endpoint: /chat/sessions/:id/send
+                var res = await fetch(API + '/chat/sessions/' + _sessionId + '/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
+                    },
+                    body: JSON.stringify({ message: msg })
+                });
 
                 var data = await res.json();
                 loader.remove();
 
                 if (data.success) {
                     _addMsg(data.reply, 'ai');
-                    loadSessions(); // refresh sidebar lịch sử
+                    loadSessions(); // refresh sidebar để cập nhật title + thứ tự
                 } else {
                     _addMsg('Xin lỗi, có lỗi xảy ra 🙏', 'ai');
                 }
@@ -622,14 +644,28 @@
         document.getElementById('newChatBtn').addEventListener('click', createSession);
         document.querySelectorAll('.suggestion-btn').forEach(function (b) {
             b.addEventListener('click', function () {
-                _inp.value = this.textContent.trim();
+                _inp.value = this.textContent.replace('💬 ', '').trim();
                 _inp.focus();
             });
         });
 
         // ── Khởi động ─────────────────────────────────────────
-        //loadSessions();
-        //createSession();     // Tạo phiên mới cho lần chat này
+        var token = localStorage.getItem('token');
+        if (token) {
+            // Load sessions rồi tự động load session gần nhất
+            (async function() {
+                try {
+                    var res = await fetch(API + '/chat/sessions', {
+                        headers: { 'Authorization': 'Bearer ' + token }
+                    });
+                    var data = await res.json();
+                    if (data.success && data.data.length > 0) {
+                        renderSessionList(data.data);
+                        loadSession(data.data[0].id); // ← tự load session mới nhất
+                    }
+                } catch(e) {}
+            })();
+        }
 
     }); // end DOMContentLoaded
 </script>
