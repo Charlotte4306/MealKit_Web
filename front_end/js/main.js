@@ -60,3 +60,60 @@ document.addEventListener("DOMContentLoaded", function () {
     updateNavbar();
   }
 });
+
+// ====== CHAT AI ======
+const chatFab = document.getElementById("chatFab");
+const chatBox = document.getElementById("chatBox");
+const chatClose = document.getElementById("chatClose");
+const chatInput = document.getElementById("chatInput");
+const chatSend = document.getElementById("chatSend");
+const chatMessages = document.getElementById("chatMessages");
+
+let chatHistory = []; // lưu lịch sử hội thoại
+
+chatFab?.addEventListener("click", () => chatBox.classList.toggle("open"));
+chatClose?.addEventListener("click", () => chatBox.classList.remove("open"));
+
+function appendMsg(text, role) {
+    const div = document.createElement("div");
+    div.className = `chat-msg chat-msg--${role === "user" ? "user" : "ai"}`;
+    div.textContent = text;
+    chatMessages.appendChild(div);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    return div;
+}
+
+async function sendChat() {
+    const msg = chatInput.value.trim();
+    if (!msg) return;
+    chatInput.value = "";
+
+    appendMsg(msg, "user");
+    chatHistory.push({ role: "user", text: msg });
+
+    // Loading indicator
+    const loading = appendMsg("Đang trả lời...", "loading");
+
+    try {
+        const res = await fetch(`${API}/chat`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ message: msg, history: chatHistory }),
+        });
+        const data = await res.json();
+        loading.remove();
+
+        if (data.success) {
+            appendMsg(data.reply, "ai");
+            chatHistory.push({ role: "model", text: data.reply });
+        } else {
+            appendMsg("Xin lỗi, có lỗi xảy ra. Thử lại nhé!", "ai");
+        }
+    } catch {
+        loading.remove();
+        appendMsg("Không kết nối được server!", "ai");
+    }
+}
+
+chatSend?.addEventListener("click", sendChat);
+chatInput?.addEventListener("keydown", e => { if (e.key === "Enter") sendChat(); });

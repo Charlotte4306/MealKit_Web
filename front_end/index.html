@@ -16,6 +16,29 @@
     />
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  <!-- Nút mở chat -->
+  <button class="chat-fab" id="chatFab" aria-label="Chat với AI">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+      </svg>
+  </button>
+
+  <!-- Hộp chat -->
+  <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+          <span>🌿 Tư vấn món ăn AI</span>
+          <button id="chatClose">✕</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+          <div class="chat-msg chat-msg--ai">
+              Xin chào! Tôi có thể giúp bạn chọn món ăn phù hợp hôm nay 🍱
+          </div>
+      </div>
+      <div class="chat-input-wrap">
+          <input type="text" id="chatInput" placeholder="Hỏi ví dụ: Món ăn cho 4 người dưới 30 phút?" />
+          <button id="chatSend">Gửi</button>
+      </div>
+  </div>
   <body>
     <!-- NAVBAR -->
     <header class="navbar" id="navbar">
@@ -43,6 +66,7 @@
         <nav class="navbar__links" id="navLinks">
           <a href="index.html" class="active">Trang chủ</a>
           <a href="products.html">Thực đơn</a>
+          <a href="chat.html">Tư vấn AI 🌿</a>
           <a href="about.html">Về chúng tôi</a>
           <a href="blog.html">Công thức</a>
           <a href="contact.html">Liên hệ</a>

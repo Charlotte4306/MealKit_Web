@@ -87,6 +87,27 @@ async function initDB() {
         FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     `);
+      await conn.query(`
+        CREATE TABLE IF NOT EXISTS chat_sessions (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            title VARCHAR(100) DEFAULT 'Cuộc trò chuyện mới',
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+        `);
+
+      await conn.query(`
+          CREATE TABLE IF NOT EXISTS chat_messages (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            session_id INT NOT NULL,
+            role ENUM('user','model') NOT NULL,
+            content TEXT NOT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (session_id) REFERENCES chat_sessions(id) ON DELETE CASCADE
+          ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    `);
     console.log("✅ Tất cả bảng đã sẵn sàng");
 
     const [[{ c }]] = await conn.query("SELECT COUNT(*) as c FROM products");
