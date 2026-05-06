@@ -30,4 +30,6 @@ Desktop.ini
 .idea/
 .vscode/
 
+node_modules/
+
 
