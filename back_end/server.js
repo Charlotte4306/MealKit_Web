@@ -6,21 +6,21 @@ require("dotenv").config();
 const app = express();
 
 app.use(
-  cors({
-    origin: [
-      "http://localhost:5500",
-      "http://127.0.0.1:5500",
-      "http://localhost:5000", // ← thêm dòng này
-      "http://127.0.0.1:5000", // ← thêm dòng này
-      process.env.CLIENT_URL,
-    ],
-    credentials: true,
-  }),
+    cors({
+        origin: [
+            "http://localhost:5500",
+            "http://127.0.0.1:5500",
+            "http://localhost:5000",
+            "http://127.0.0.1:5000",
+            "http://localhost:3000",   // phòng khi dùng port khác
+        ],
+        credentials: true,
+    })
 );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-app.use(express.static(path.join(__dirname, "../font_end")));
+app.use(express.static(path.join(__dirname, "../front_end")));
 
 const { initDB } = require("./database/init");
 initDB().catch(console.error);

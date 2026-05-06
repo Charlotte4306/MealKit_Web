@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api";
+//var API = "http://localhost:5000/api";
 
 // Lưu / đọc token
 function getToken() {
@@ -49,17 +49,42 @@ async function register(name, email, phone, password) {
 
 // Đăng nhập
 async function login(email, password) {
-  const res = await fetch(`${API}/auth/login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
-  });
-  const data = await res.json();
-  if (data.success) {
-    localStorage.setItem("token", data.token);
-    localStorage.setItem("user", JSON.stringify(data.user));
-  }
-  return data;
+    try {
+        const res = await fetch(`${API}/auth/login`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password }),
+        });
+        const data = await res.json();
+        if (data.success) {
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+        }
+        return data;
+    } catch (err) {
+        console.error("Lỗi kết nối backend:", err);
+        return { success: false, message: "Không kết nối được server. Kiểm tra backend đang chạy chưa." };
+    }
+}
+
+async function handleGoogleLogin(response) {
+    try {
+        const res = await fetch(`${API}/auth/google`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id_token: response.credential }),
+        });
+        const data = await res.json();
+        if (data.success) {
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+            window.location.href = "index.html";
+        } else {
+            alert("Đăng nhập Google thất bại: " + data.message);
+        }
+    } catch (err) {
+        console.error("Lỗi:", err);
+    }
 }
 
 // Đăng xuất
@@ -94,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const data = await login(email, password);
       if (data.success) {
-        setTimeout(() => (window.location.href = "/index.html"), 1000);
+        setTimeout(() => (window.location.href = "index.html"), 1000);
       } else {
         // Hiện lỗi đúng vị trí
         if (passErr)
@@ -109,15 +134,16 @@ document.addEventListener("DOMContentLoaded", function () {
   if (regForm) {
     regForm.addEventListener("submit", async function (e) {
       e.preventDefault();
-      const name = document.getElementById("reg-name").value;
-      const email = document.getElementById("reg-email").value;
-      const phone = document.getElementById("reg-phone").value;
-      const password = document.getElementById("reg-password").value;
-      const msg = document.getElementById("reg-message");
+        // SAU KHI SỬA (đúng với register.html)
+        const name     = document.getElementById("fullname").value;
+        const email    = document.getElementById("reg-email").value;
+        const phone    = document.getElementById("phone").value;
+        const password = document.getElementById("reg-password").value;
+        const msg      = document.getElementById("regPasswordError"); // hoặc tạo thêm id riêng
       const data = await register(name, email, phone, password);
       if (data.success) {
         msg && (msg.textContent = "✅ Đăng ký thành công! Đang chuyển...");
-        setTimeout(() => (window.location.href = "/index.html"), 1000);
+        setTimeout(() => (window.location.href = "index.html"), 1000);
       } else {
         msg && (msg.textContent = "❌ " + data.message);
       }
