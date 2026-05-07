@@ -1,4 +1,4 @@
-const API = "/api";
+var API = "/api";
 
 // ===== GIỎ HÀNG =====
 function getCart() {

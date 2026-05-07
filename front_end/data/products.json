@@ -1,0 +1,274 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Cơm gà sốt me",
+      "category": "com",
+      "description": "Ức gà tươi + sốt me chua ngọt + rau xà lách",
+      "price": 89000,
+      "serves": 2,
+      "time": 15,
+      "tags": [
+        "phổ biến"
+      ],
+      "image": "com-ga-sot-me.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+    },
+    {
+      "id": 2,
+      "name": "Cơm thịt kho tàu",
+      "category": "com",
+      "description": "Thịt ba chỉ + trứng luộc + nước dừa ủ sẵn",
+      "price": 85000,
+      "serves": 2,
+      "time": 20,
+      "tags": [
+        "bán chạy"
+      ],
+      "image": "com-thit-kho-tau.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+    },
+    {
+      "id": 3,
+      "name": "Cơm bò xào rau củ",
+      "category": "com",
+      "description": "Thịt bò thái lát + cà rốt, ớt chuông, nấm",
+      "price": 99000,
+      "serves": 2,
+      "time": 15,
+      "tags": [],
+      "image": "com-bo-xao.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+    },
+    {
+      "id": 4,
+      "name": "Cơm gà chiên nước mắm",
+      "category": "com",
+      "description": "Gà miếng ướp sẵn + tỏi phi + rau muống",
+      "price": 89000,
+      "serves": 2,
+      "time": 15,
+      "tags": [],
+      "image": "com-ga-chien.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38"
+    },
+    {
+      "id": 5,
+      "name": "Cơm cá hồi áp chảo",
+      "category": "com",
+      "description": "Philê cá hồi + khoai tây + bông cải xanh",
+      "price": 115000,
+      "serves": 2,
+      "time": 20,
+      "tags": [
+        "cao cấp"
+      ],
+      "image": "com-ca-hoi.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
+    },
+    {
+      "id": 6,
+      "name": "Bún bò Huế",
+      "category": "bun-mi",
+      "description": "Bắp bò + chả cua + sả, mắm ruốc pha sẵn",
+      "price": 95000,
+      "serves": 2,
+      "time": 20,
+      "tags": [
+        "phổ biến"
+      ],
+      "image": "bun-bo-hue.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1467003909585-2f8a72700288"
+    },
+    {
+      "id": 7,
+      "name": "Bún thịt nướng",
+      "category": "bun-mi",
+      "description": "Thịt heo ướp sẵn + bún + rau sống + mắm",
+      "price": 88000,
+      "serves": 2,
+      "time": 15,
+      "tags": [
+        "bán chạy"
+      ],
+      "image": "bun-thit-nuong.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1533777324565-a040eb52fac1"
+    },
+    {
+      "id": 8,
+      "name": "Mì xào bò",
+      "category": "bun-mi",
+      "description": "Mì tươi + thịt bò + giá đỗ + nước sốt hào",
+      "price": 92000,
+      "serves": 2,
+      "time": 15,
+      "tags": [],
+      "image": "mi-xao-bo.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1516100882582-96c3a05fe590"
+    },
+    {
+      "id": 9,
+      "name": "Bún đậu mắm tôm",
+      "category": "bun-mi",
+      "description": "Đậu phụ + bún rối + chả cốm + mắm tôm",
+      "price": 85000,
+      "serves": 2,
+      "time": 10,
+      "tags": [],
+      "image": "bun-dau.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1533777324565-a040eb52fac1"
+    },
+    {
+      "id": 10,
+      "name": "Salad gà ức quinoa",
+      "category": "healthy",
+      "description": "Gà ức luộc + quinoa + rau xanh + dầu olive",
+      "price": 99000,
+      "serves": 2,
+      "time": 15,
+      "tags": [
+        "eat clean"
+      ],
+      "image": "salad-ga-quinoa.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"
+    },
+    {
+      "id": 11,
+      "name": "Cơm gạo lứt cá ngừ",
+      "category": "healthy",
+      "description": "Cá ngừ áp chảo + cơm gạo lứt + rau cải",
+      "price": 95000,
+      "serves": 2,
+      "time": 15,
+      "tags": [
+        "eat clean"
+      ],
+      "image": "com-gao-lut.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd"
+    },
+    {
+      "id": 12,
+      "name": "Canh chua cá diêu hồng",
+      "category": "healthy",
+      "description": "Cá diêu hồng + cà chua + giá đỗ + me",
+      "price": 88000,
+      "serves": 2,
+      "time": 20,
+      "tags": [],
+      "image": "canh-chua.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543"
+    },
+    {
+      "id": 13,
+      "name": "Gà hấp gừng rau luộc",
+      "category": "healthy",
+      "description": "Gà ta miếng + gừng tươi + rau cải ngọt",
+      "price": 92000,
+      "serves": 2,
+      "time": 20,
+      "tags": [
+        "eat clean"
+      ],
+      "image": "ga-hap-gung.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38"
+    },
+    {
+      "id": 14,
+      "name": "Thịt heo xào sả ớt",
+      "category": "xao",
+      "description": "Ba chỉ thái mỏng + sả + ớt + rau muống xào",
+      "price": 82000,
+      "serves": 2,
+      "time": 15,
+      "tags": [],
+      "image": "thit-heo-xao.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1516100882582-96c3a05fe590"
+    },
+    {
+      "id": 15,
+      "name": "Đậu phụ sốt cà chua",
+      "category": "xao",
+      "description": "Đậu non + cà chua + hành lá",
+      "price": 75000,
+      "serves": 2,
+      "time": 10,
+      "tags": [
+        "tiết kiệm"
+      ],
+      "image": "dau-phu-sot.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+    },
+    {
+      "id": 16,
+      "name": "Tôm xào bơ tỏi",
+      "category": "xao",
+      "description": "Tôm sú bóc vỏ + bơ + tỏi băm sẵn",
+      "price": 109000,
+      "serves": 2,
+      "time": 10,
+      "tags": [
+        "cao cấp"
+      ],
+      "image": "tom-xao-bo-toi.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1504674900247-0877df9cc836"
+    },
+    {
+      "id": 17,
+      "name": "Bò lúc lắc",
+      "category": "xao",
+      "description": "Thịt bò hạt lựu + ớt chuông + hành tây",
+      "price": 105000,
+      "serves": 2,
+      "time": 15,
+      "tags": [
+        "phổ biến"
+      ],
+      "image": "bo-luc-lac.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1604909052743-88c31694682f"
+    },
+    {
+      "id": 18,
+      "name": "Combo 3 bữa Healthy",
+      "category": "combo",
+      "description": "Cá hồi sáng + salad trưa + gà tối — đủ dinh dưỡng cả ngày",
+      "price": 165000,
+      "serves": 2,
+      "time": null,
+      "tags": [
+        "combo",
+        "eat clean"
+      ],
+      "image": "combo-healthy.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c"
+    },
+    {
+      "id": 19,
+      "name": "Set gia đình nhỏ 4 người",
+      "category": "combo",
+      "description": "Thịt kho + canh + rau xào — đủ bữa cơm gia đình",
+      "price": 175000,
+      "serves": 4,
+      "time": 25,
+      "tags": [
+        "combo"
+      ],
+      "image": "combo-gia-dinh.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1546069901-eacef0df6022"
+    },
+    {
+      "id": 20,
+      "name": "Bữa tối cuối tuần",
+      "category": "combo",
+      "description": "Bò bít tết + khoai nghiền + xà lách Caesar",
+      "price": 149000,
+      "serves": 2,
+      "time": 25,
+      "tags": [
+        "combo",
+        "cao cấp"
+      ],
+      "image": "combo-cuoi-tuan.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601"
+    }
+  ]
+}

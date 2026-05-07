@@ -12,12 +12,33 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/products.css" />
+    <style>
+  #product-filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:24px; }
+  .filter-btn { padding:8px 16px; border:1px solid #ddd; border-radius:99px; background:#fff; cursor:pointer; font-size:14px; transition:.2s; }
+  .filter-btn.active, .filter-btn:hover { background:#01696f; color:#fff; border-color:#01696f; }
+
+  #product-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:24px; }
+  .product-card { border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,.08); background:#fff; transition:.2s; }
+  .product-card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,.12); }
+  .product-img-wrap { position:relative; }
+  .product-img-wrap img { width:100%; height:180px; object-fit:cover; }
+  .product-tags { position:absolute; top:8px; left:8px; display:flex; gap:4px; flex-wrap:wrap; }
+  .product-tag { font-size:11px; color:#fff; padding:2px 8px; border-radius:99px; font-weight:600; }
+  .product-info { padding:14px 16px 16px; }
+  .product-name { font-size:16px; font-weight:700; margin-bottom:4px; }
+  .product-desc { font-size:13px; color:#666; margin-bottom:8px; }
+  .product-meta { display:flex; gap:12px; font-size:12px; color:#888; margin-bottom:12px; }
+  .product-footer { display:flex; align-items:center; justify-content:space-between; }
+  .product-price { font-size:18px; font-weight:700; color:#01696f; }
+  .btn-add { background:#01696f; color:#fff; border:none; padding:8px 16px; border-radius:8px; cursor:pointer; font-size:13px; font-weight:600; }
+  .btn-add:hover { background:#0c4e54; }
+</style>
   </head>
   <body>
     <!-- NAVBAR -->
     <header class="navbar" id="navbar">
       <div class="container navbar__inner">
-        <a href="index.html" class="navbar__logo">
+        <a href="/index" class="navbar__logo">
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
             <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
             <path
@@ -32,15 +53,15 @@
           <span>MealKit <em>Việt</em></span>
         </a>
         <nav class="navbar__links" id="navLinks">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html" class="active">Thực đơn</a>
-          <a href="chat.html">Tư vấn AI 🌿</a>
-          <a href="about.html">Về chúng tôi</a>
-          <a href="blog.html">Công thức</a>
-          <a href="contact.html">Liên hệ</a>
+          <a href="/index">Trang chủ</a>
+          <a href="/products" class="active">Thực đơn</a>
+          <a href="/chat">Tư vấn AI 🌿</a>
+          <a href="/about">Về chúng tôi</a>
+          <a href="/blog">Công thức</a>
+          <a href="/contact">Liên hệ</a>
         </nav>
         <div class="navbar__actions">
-          <a href="cart.html" class="btn-cart" aria-label="Giỏ hàng">
+          <a href="/cart" class="btn-cart" aria-label="Giỏ hàng">
             <svg
               width="22"
               height="22"
@@ -55,8 +76,8 @@
             </svg>
             <span class="cart-badge" id="cartBadge">0</span>
           </a>
-          <a href="login.html" class="btn btn--outline">Đăng nhập</a>
-          <a href="register.html" class="btn btn--primary">Đăng ký</a>
+          <a href="/login" class="btn btn--outline">Đăng nhập</a>
+          <a href="/register" class="btn btn--primary">Đăng ký</a>
           <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
           </button>
@@ -260,7 +281,7 @@
               </button>
             </div>
           </div>
-
+            <div id="product-filters"></div>
             <div class="products-grid" id="products-grid">
             <!-- render by JS -->
           </div>
@@ -293,7 +314,7 @@
     <footer class="footer">
       <div class="container footer__inner">
         <div class="footer__brand">
-          <a href="index.html" class="navbar__logo" style="color: #fff">
+          <a href="/index" class="navbar__logo" style="color: #fff">
             <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
               <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
               <path
@@ -314,14 +335,14 @@
         </div>
         <div class="footer__links">
           <h4>Sản phẩm</h4>
-          <a href="products.html">Thực đơn</a
+          <a href="/products">Thực đơn</a
           ><a href="products.html?cat=family">Gói gia đình</a
           ><a href="products.html?cat=vegan">Gói chay</a>
         </div>
         <div class="footer__links">
           <h4>Công ty</h4>
-          <a href="about.html">Về chúng tôi</a><a href="blog.html">Blog</a
-          ><a href="contact.html">Liên hệ</a>
+          <a href="/about">Về chúng tôi</a><a href="/blog">Blog</a
+          ><a href="/contact">Liên hệ</a>
         </div>
         <div class="footer__links">
           <h4>Hỗ trợ</h4>
