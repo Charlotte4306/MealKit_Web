@@ -76,8 +76,18 @@
             </svg>
             <span class="cart-badge" id="cartBadge">0</span>
           </a>
-          <a href="/login" class="btn btn--outline">Đăng nhập</a>
-          <a href="/register" class="btn btn--primary">Đăng ký</a>
+
+          <!-- Hiển thị tên user khi đã đăng nhập -->
+          <span id="user-name"
+                style="font-weight:600; color: var(--color-primary, #2f6b3b); margin-right: 4px;"></span>
+
+          <!-- Nút khi chưa đăng nhập -->
+          <a href="/login" id="btn-login" class="btn btn--outline">Đăng nhập</a>
+          <a href="/register" id="btn-register" class="btn btn--primary">Đăng ký</a>
+
+          <!-- Nút khi đã đăng nhập (ẩn mặc định) -->
+          <button id="btn-logout" class="btn btn--outline" style="display:none;">Đăng xuất</button>
+
           <button class="hamburger" id="hamburger" aria-label="Menu">
             <span></span><span></span><span></span>
           </button>
@@ -355,6 +365,7 @@
       </div>
     </footer>
 
+    <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
     <script src="js/products.js"></script>
   </body>

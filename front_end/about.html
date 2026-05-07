@@ -29,19 +29,36 @@
             <a href="/contact">Liên hệ</a>
         </nav>
         <div class="navbar__actions">
-            <a href="/cart" class="btn-cart" aria-label="Giỏ hàng">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 01-8 0"/>
-                </svg>
-                <span class="cart-badge" id="cartBadge">0</span>
-            </a>
-            <a href="/login" class="btn btn--outline">Đăng nhập</a>
-            <a href="/register" class="btn btn--primary">Đăng ký</a>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
+        <a href="/cart" class="btn-cart" aria-label="Giỏ hàng">
+            <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            >
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <path d="M16 10a4 4 0 01-8 0" />
+            </svg>
+            <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+
+        <!-- Hiển thị tên user khi đã đăng nhập -->
+        <span id="user-name"
+                style="font-weight:600; color: var(--color-primary, #2f6b3b); margin-right: 4px;"></span>
+
+        <!-- Nút khi chưa đăng nhập -->
+        <a href="/login" id="btn-login" class="btn btn--outline">Đăng nhập</a>
+        <a href="/register" id="btn-register" class="btn btn--primary">Đăng ký</a>
+
+        <!-- Nút khi đã đăng nhập (ẩn mặc định) -->
+        <button id="btn-logout" class="btn btn--outline" style="display:none;">Đăng xuất</button>
+
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
         </div>
     </div>
 </header>
@@ -133,6 +150,7 @@
         <p>Được làm với ❤️ tại Việt Nam</p>
     </div>
 </footer>
+<script src="js/auth.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
