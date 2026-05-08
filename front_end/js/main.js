@@ -38,8 +38,9 @@ async function loadFeaturedProducts() {
       (p) => `
     <div class="product-card" onclick="window.location.href='product-detail.html?id=${p.id}'">
       <img src="${p.image ? '/images/products/' + p.image : 'https://picsum.photos/seed/mealkit/300/200'}" 
-     alt="${p.name}" 
-     onerror="this.onerror=null; this.src='https://picsum.photos/seed/mealkit/300/200'">
+     alt="${p.name}"
+     style="width:100%;height:200px;object-fit:cover;object-position:center;display:block;aspect-ratio:unset;"
+     onerror="this.onerror=null;this.src='https://picsum.photos/seed/mealkit/300/200'">
       <div class="product-info">
         ${p.badge ? `<span class="badge">${p.badge}</span>` : ""}
         <h3>${p.name}</h3>
