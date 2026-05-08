@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bò Xào Rau Củ Đà Lạt – MealKit Việt</title>
+    <title>Chi tiết món ăn – ByteBloom MealKit</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,13 +20,7 @@
         <a href="/index" class="navbar__logo">
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
             <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
-            <path
-              d="M10 22 Q14 12 18 18 Q22 24 26 14"
-              stroke="#fff"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              fill="none"
-            />
+            <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
             <circle cx="18" cy="10" r="2.5" fill="#95d5b2" />
           </svg>
           <span>MealKit <em>Việt</em></span>
@@ -40,14 +34,7 @@
         </nav>
         <div class="navbar__actions">
           <a href="/cart" class="btn-cart" aria-label="Giỏ hàng">
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />
               <path d="M16 10a4 4 0 01-8 0" />
@@ -56,7 +43,6 @@
           </a>
           <a href="/login" class="btn btn--outline">Đăng nhập</a>
           <a href="/register" class="btn btn--primary">Đăng ký</a>
-          <!-- Sau -->
           <button class="hamburger" id="hamburger" aria-label="Mở menu">
             <span></span><span></span><span></span>
           </button>
@@ -70,28 +56,10 @@
         <div class="container">
           <nav class="breadcrumb">
             <a href="/index">Trang chủ</a>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6" /></svg>
             <a href="/products">Thực đơn</a>
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <polyline points="9 18 15 12 9 6" />
-            </svg>
-            <span id="pdBreadcrumb">Bò Xào Rau Củ Đà Lạt</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6" /></svg>
+            <span id="pdBreadcrumb">Đang tải...</span>
           </nav>
         </div>
       </div>
@@ -102,178 +70,57 @@
           <!-- Gallery -->
           <div class="pd-gallery">
             <div class="pd-gallery__main">
-              <img
-                id="mainImg"
-                src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=800&q=85"
-                alt="Bò Xào Rau Củ Đà Lạt"
-              />
-              <span class="pd-badge" id="pdBadge">Bán chạy</span>
+              <img id="mainImg" src="https://picsum.photos/seed/1/800/600" alt="Ảnh món ăn" />
+              <span class="pd-badge" id="pdBadge"></span>
             </div>
             <div class="pd-gallery__thumbs" id="thumbsContainer">
-              <button
-                class="thumb active"
-                onclick="
-                  changeImg(
-                    this,
-                    'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=800&q=85',
-                  )
-                "
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=120&q=70"
-                  alt="ảnh 1"
-                />
-              </button>
-              <button
-                class="thumb"
-                onclick="
-                  changeImg(
-                    this,
-                    'https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=85',
-                  )
-                "
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=120&q=70"
-                  alt="ảnh 2"
-                />
-              </button>
-              <button
-                class="thumb"
-                onclick="
-                  changeImg(
-                    this,
-                    'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=85',
-                  )
-                "
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=120&q=70"
-                  alt="ảnh 3"
-                />
-              </button>
-              <button
-                class="thumb"
-                onclick="
-                  changeImg(
-                    this,
-                    'https://images.unsplash.com/photo-1543353071-10c8ba85a904?w=800&q=85',
-                  )
-                "
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1543353071-10c8ba85a904?w=120&q=70"
-                  alt="ảnh 4"
-                />
-              </button>
+              <!-- Thumbnails render từ JS -->
             </div>
           </div>
 
           <!-- Info -->
           <div class="pd-info">
             <div class="pd-info__top">
-              <span class="section__tag">Món xào</span>
-              <button
-                class="pd-wishlist"
-                id="wishlistBtn"
-                aria-label="Yêu thích"
-                onclick="toggleWishlist(this)"
-              >
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-                  />
+              <span class="section__tag" id="pdCategory">Món ăn</span>
+              <button class="pd-wishlist" id="wishlistBtn" aria-label="Yêu thích" onclick="toggleWishlist(this)">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
                 </svg>
               </button>
             </div>
 
-            <h1 class="pd-name" id="pdName">Bò Xào Rau Củ Đà Lạt</h1>
+            <h1 class="pd-name" id="pdName">Đang tải...</h1>
 
             <div class="pd-rating">
-              <div class="stars">★★★★★</div>
-              <span class="pd-rating__count">4.8 (128 đánh giá)</span>
-              <span class="pd-rating__sold">· Đã bán 240+</span>
+              <div class="stars" id="pdStars">★★★★★</div>
+              <span class="pd-rating__count" id="pdRatingCount"></span>
+              <span class="pd-rating__sold" id="pdSold"></span>
             </div>
 
             <div class="pd-price-row">
-              <span class="pd-price" id="pdPrice">189,000đ</span>
+              <span class="pd-price" id="pdPrice">0đ</span>
               <span class="pd-price-unit">/ gói</span>
-              <span class="pd-price-original">220,000đ</span>
-              <span class="pd-discount-tag">-14%</span>
             </div>
 
-            <p class="pd-short-desc" id="pdDesc">
-              Thịt bò Úc hạng A thái lát mỏng, rau củ Đà Lạt tươi (cà rốt, ớt
-              chuông, nấm đùi gà), sốt hoisin pha sẵn đặc biệt. Chỉ cần 25 phút
-              là có ngay bữa cơm ngon cho cả nhà.
-            </p>
+            <p class="pd-short-desc" id="pdShortDesc">Đang tải...</p>
 
             <!-- Quick specs -->
             <div class="pd-specs">
               <div class="pd-spec">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-                <div><strong>25 phút</strong><span>Thời gian nấu</span></div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                <div><strong id="pdCookTime">--</strong><span>Thời gian nấu</span></div>
               </div>
               <div class="pd-spec">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                </svg>
-                <div><strong>2 người</strong><span>Khẩu phần</span></div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /></svg>
+                <div><strong id="pdServings">--</strong><span>Khẩu phần</span></div>
               </div>
               <div class="pd-spec">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                  />
-                </svg>
-                <div><strong>Dễ</strong><span>Độ khó</span></div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                <div><strong id="pdDifficulty">--</strong><span>Độ khó</span></div>
               </div>
               <div class="pd-spec">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"
-                  />
-                </svg>
-                <div><strong>450 kcal</strong><span>Mỗi phần</span></div>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" /></svg>
+                <div><strong id="pdCalories">--</strong><span>Mỗi phần</span></div>
               </div>
             </div>
 
@@ -281,56 +128,21 @@
             <div class="pd-option-group">
               <label class="pd-option-label">Khẩu phần:</label>
               <div class="pd-serving-btns">
-                <button
-                  class="serving-choice active"
-                  data-serving="2"
-                  data-price="189000"
-                  onclick="selectServing(this)"
-                >
-                  2 người
-                </button>
-                <button
-                  class="serving-choice"
-                  data-serving="4"
-                  data-price="350000"
-                  onclick="selectServing(this)"
-                >
-                  4 người
-                </button>
-                <button
-                  class="serving-choice"
-                  data-serving="6"
-                  data-price="490000"
-                  onclick="selectServing(this)"
-                >
-                  6 người
-                </button>
+                <button class="serving-choice active" data-serving="2" data-price-multiplier="1" onclick="selectServing(this)">2 người</button>
+                <button class="serving-choice" data-serving="4" data-price-multiplier="2" onclick="selectServing(this)">4 người</button>
+                <button class="serving-choice" data-serving="6" data-price-multiplier="3" onclick="selectServing(this)">6 người</button>
               </div>
             </div>
 
             <!-- Qty + CTA -->
             <div class="pd-cta">
               <div class="pd-qty">
-                <button class="qty-btn-lg" onclick="changeDetailQty(-1)">
-                  −
-                </button>
+                <button class="qty-btn-lg" onclick="changeDetailQty(-1)">−</button>
                 <span id="detailQty">1</span>
-                <button class="qty-btn-lg" onclick="changeDetailQty(1)">
-                  +
-                </button>
+                <button class="qty-btn-lg" onclick="changeDetailQty(1)">+</button>
               </div>
-              <button
-                class="btn btn--primary btn--lg pd-add-btn"
-                onclick="addDetailToCart()"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
+              <button class="btn btn--primary btn--lg pd-add-btn" onclick="addDetailToCart()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
                   <line x1="3" y1="6" x2="21" y2="6" />
                   <path d="M16 10a4 4 0 01-8 0" />
@@ -343,51 +155,15 @@
             <!-- Delivery info -->
             <div class="pd-delivery-info">
               <div class="delivery-row">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <rect x="1" y="3" width="15" height="13" />
-                  <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-                  <circle cx="5.5" cy="18.5" r="2.5" />
-                  <circle cx="18.5" cy="18.5" r="2.5" />
-                </svg>
-                <span
-                  ><strong>Miễn phí giao hàng</strong> cho đơn từ 300,000đ</span
-                >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13" /><polygon points="16 8 20 8 23 11 23 16 16 16 16 8" /><circle cx="5.5" cy="18.5" r="2.5" /><circle cx="18.5" cy="18.5" r="2.5" /></svg>
+                <span><strong>Miễn phí giao hàng</strong> cho đơn từ 300,000đ</span>
               </div>
               <div class="delivery-row">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <polyline points="12 6 12 12 16 14" />
-                </svg>
-                <span
-                  >Giao <strong>trước 8 giờ sáng</strong> hôm sau nếu đặt trước
-                  22:00</span
-                >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
+                <span>Giao <strong>trước 8 giờ sáng</strong> hôm sau nếu đặt trước 22:00</span>
               </div>
               <div class="delivery-row">
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
                 <span>Nguyên liệu <strong>được kiểm định</strong> VietGAP</span>
               </div>
             </div>
@@ -399,169 +175,28 @@
       <section class="pd-tabs-section">
         <div class="container">
           <div class="pd-tabs">
-            <button
-              class="pd-tab active"
-              data-tab="ingredients"
-              onclick="switchTab(this)"
-            >
-              Nguyên liệu
-            </button>
-            <button class="pd-tab" data-tab="steps" onclick="switchTab(this)">
-              Cách nấu
-            </button>
-            <button
-              class="pd-tab"
-              data-tab="nutrition"
-              onclick="switchTab(this)"
-            >
-              Dinh dưỡng
-            </button>
-            <button class="pd-tab" data-tab="reviews" onclick="switchTab(this)">
-              Đánh giá (128)
-            </button>
+            <button class="pd-tab active" data-tab="ingredients" onclick="switchTab(this)">Nguyên liệu</button>
+            <button class="pd-tab" data-tab="steps" onclick="switchTab(this)">Cách nấu</button>
+            <button class="pd-tab" data-tab="nutrition" onclick="switchTab(this)">Dinh dưỡng</button>
+            <button class="pd-tab" data-tab="video" onclick="switchTab(this)">🎬 Video hướng dẫn</button>
+            <button class="pd-tab" data-tab="reviews" onclick="switchTab(this)">Đánh giá (<span id="reviewCountTab">0</span>)</button>
           </div>
 
           <!-- Tab: Nguyên liệu -->
           <div class="pd-tab-content active" id="tab-ingredients">
-            <div class="ingredients-grid">
-              <div class="ingredient-card">
-                <div class="ingredient-img">
-                  <img
-                    src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=120&q=70"
-                    alt="Thịt bò"
-                  />
-                </div>
-                <span class="ingredient-name">Thịt bò Úc</span>
-                <span class="ingredient-qty">200g</span>
-              </div>
-              <div class="ingredient-card">
-                <div class="ingredient-img">
-                  <img
-                    src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=120&q=70"
-                    alt="Cà rốt"
-                  />
-                </div>
-                <span class="ingredient-name">Cà rốt Đà Lạt</span>
-                <span class="ingredient-qty">100g</span>
-              </div>
-              <div class="ingredient-card">
-                <div class="ingredient-img">
-                  <img
-                    src="https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=120&q=70"
-                    alt="Ớt chuông"
-                  />
-                </div>
-                <span class="ingredient-name">Ớt chuông 3 màu</span>
-                <span class="ingredient-qty">80g</span>
-              </div>
-              <div class="ingredient-card">
-                <div class="ingredient-img">
-                  <img
-                    src="https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=120&q=70"
-                    alt="Nấm"
-                  />
-                </div>
-                <span class="ingredient-name">Nấm đùi gà</span>
-                <span class="ingredient-qty">100g</span>
-              </div>
-              <div class="ingredient-card">
-                <div class="ingredient-img">
-                  <img
-                    src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=120&q=70"
-                    alt="Sốt hoisin"
-                  />
-                </div>
-                <span class="ingredient-name">Sốt hoisin</span>
-                <span class="ingredient-qty">30ml</span>
-              </div>
-              <div class="ingredient-card">
-                <div class="ingredient-img">
-                  <img
-                    src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?w=120&q=70"
-                    alt="Tỏi"
-                  />
-                </div>
-                <span class="ingredient-name">Tỏi, gừng</span>
-                <span class="ingredient-qty">1 nhánh</span>
-              </div>
+            <div class="ingredients-grid" id="ingredientsGrid">
+              <p style="color:#aaa;">Đang tải nguyên liệu...</p>
             </div>
             <div class="ingredients-note">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="12" />
-                <line x1="12" y1="16" x2="12.01" y2="16" />
-              </svg>
-              Tất cả nguyên liệu đã được sơ chế sẵn (rửa, thái, tẩm ướp). Bạn
-              chỉ cần chảo và 25 phút!
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" /></svg>
+              Tất cả nguyên liệu đã được sơ chế sẵn (rửa, thái, tẩm ướp). Bạn chỉ cần chảo và nấu!
             </div>
           </div>
 
           <!-- Tab: Cách nấu -->
           <div class="pd-tab-content" id="tab-steps">
-            <div class="steps-list">
-              <div class="cook-step">
-                <div class="cook-step__num">1</div>
-                <div class="cook-step__content">
-                  <h4>Làm nóng chảo</h4>
-                  <p>
-                    Đặt chảo lên bếp lửa vừa, thêm 1 thìa dầu ăn. Chờ dầu nóng
-                    đến khi thấy khói nhẹ (~2 phút).
-                  </p>
-                  <span class="cook-step__time">2 phút</span>
-                </div>
-              </div>
-              <div class="cook-step">
-                <div class="cook-step__num">2</div>
-                <div class="cook-step__content">
-                  <h4>Xào tỏi gừng</h4>
-                  <p>
-                    Phi thơm tỏi gừng đã băm nhỏ trong dầu nóng đến khi vàng
-                    thơm. Lửa to để giữ hương thơm.
-                  </p>
-                  <span class="cook-step__time">1 phút</span>
-                </div>
-              </div>
-              <div class="cook-step">
-                <div class="cook-step__num">3</div>
-                <div class="cook-step__content">
-                  <h4>Áp chảo thịt bò</h4>
-                  <p>
-                    Cho thịt bò đã ướp vào, dàn đều không xáo trộn ngay. Đợi 1
-                    phút rồi mới lật để bò chín đều, không bị dai.
-                  </p>
-                  <span class="cook-step__time">3 phút</span>
-                </div>
-              </div>
-              <div class="cook-step">
-                <div class="cook-step__num">4</div>
-                <div class="cook-step__content">
-                  <h4>Xào rau củ</h4>
-                  <p>
-                    Cho cà rốt, ớt chuông vào xào trước 2 phút. Tiếp theo thêm
-                    nấm đùi gà, xào thêm 2 phút đến khi rau chín tới còn giòn.
-                  </p>
-                  <span class="cook-step__time">4 phút</span>
-                </div>
-              </div>
-              <div class="cook-step">
-                <div class="cook-step__num">5</div>
-                <div class="cook-step__content">
-                  <h4>Trộn sốt và hoàn thiện</h4>
-                  <p>
-                    Đổ sốt hoisin vào, đảo đều tất cả nguyên liệu trên lửa to 1
-                    phút. Nêm lại vừa miệng, tắt bếp. Dọn ra dĩa, rắc hành lá và
-                    vừng lên trên.
-                  </p>
-                  <span class="cook-step__time">2 phút</span>
-                </div>
-              </div>
+            <div class="steps-list" id="stepsList">
+              <p style="color:#aaa;">Đang tải các bước nấu...</p>
             </div>
           </div>
 
@@ -571,122 +206,31 @@
               <div class="nutrition-chart">
                 <div class="nutrition-circle">
                   <svg viewBox="0 0 120 120" width="200" height="200">
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      fill="none"
-                      stroke="#f2efe8"
-                      stroke-width="16"
-                    />
-                    <!-- Protein: 35% -->
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      fill="none"
-                      stroke="#2d6a4f"
-                      stroke-width="16"
-                      stroke-dasharray="110 204"
-                      stroke-dashoffset="25"
-                      stroke-linecap="round"
-                    />
-                    <!-- Fat: 25% -->
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      fill="none"
-                      stroke="#f4a261"
-                      stroke-width="16"
-                      stroke-dasharray="79 235"
-                      stroke-dashoffset="-85"
-                      stroke-linecap="round"
-                    />
-                    <!-- Carb: 40% -->
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      fill="none"
-                      stroke="#95d5b2"
-                      stroke-width="16"
-                      stroke-dasharray="126 188"
-                      stroke-dashoffset="-164"
-                      stroke-linecap="round"
-                    />
-                    <text
-                      x="60"
-                      y="55"
-                      text-anchor="middle"
-                      font-size="18"
-                      font-weight="800"
-                      fill="#1a2e1f"
-                    >
-                      450
-                    </text>
-                    <text
-                      x="60"
-                      y="72"
-                      text-anchor="middle"
-                      font-size="11"
-                      fill="#5a6b5e"
-                    >
-                      kcal
-                    </text>
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#f2efe8" stroke-width="16" />
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#2d6a4f" stroke-width="16" stroke-dasharray="110 204" stroke-dashoffset="25" stroke-linecap="round" />
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#f4a261" stroke-width="16" stroke-dasharray="79 235" stroke-dashoffset="-85" stroke-linecap="round" />
+                    <circle cx="60" cy="60" r="50" fill="none" stroke="#95d5b2" stroke-width="16" stroke-dasharray="126 188" stroke-dashoffset="-164" stroke-linecap="round" />
+                    <text x="60" y="55" text-anchor="middle" font-size="18" font-weight="800" fill="#1a2e1f" id="nutritionKcal">--</text>
+                    <text x="60" y="72" text-anchor="middle" font-size="11" fill="#5a6b5e">kcal</text>
                   </svg>
                   <div class="nutrition-legend">
-                    <span class="leg-item"
-                      ><em style="background: #2d6a4f"></em>Protein 35%</span
-                    >
-                    <span class="leg-item"
-                      ><em style="background: #f4a261"></em>Chất béo 25%</span
-                    >
-                    <span class="leg-item"
-                      ><em style="background: #95d5b2"></em>Carbs 40%</span
-                    >
+                    <span class="leg-item"><em style="background:#2d6a4f"></em>Protein 35%</span>
+                    <span class="leg-item"><em style="background:#f4a261"></em>Chất béo 25%</span>
+                    <span class="leg-item"><em style="background:#95d5b2"></em>Carbs 40%</span>
                   </div>
                 </div>
               </div>
-              <div class="nutrition-table">
+              <div class="nutrition-table" id="nutritionTable">
                 <h4>Thành phần dinh dưỡng <small>(mỗi khẩu phần)</small></h4>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>Năng lượng</td>
-                      <td><strong>450 kcal</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Protein</td>
-                      <td><strong>38g</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Chất béo</td>
-                      <td><strong>14g</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Carbohydrate</td>
-                      <td><strong>45g</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Chất xơ</td>
-                      <td><strong>5g</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Natri</td>
-                      <td><strong>620mg</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Vitamin A</td>
-                      <td><strong>25% DV</strong></td>
-                    </tr>
-                    <tr>
-                      <td>Vitamin C</td>
-                      <td><strong>40% DV</strong></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <p style="color:#aaa;">Đang tải...</p>
               </div>
+            </div>
+          </div>
+
+          <!-- Tab: Video hướng dẫn -->
+          <div class="pd-tab-content" id="tab-video">
+            <div id="videoSection" style="padding:16px 0;">
+              <p style="color:#aaa;">Đang tải video...</p>
             </div>
           </div>
 
@@ -695,145 +239,33 @@
             <div class="reviews-wrap">
               <div class="reviews-summary">
                 <div class="reviews-score">
-                  <span class="score-big">4.8</span>
-                  <div class="stars">★★★★★</div>
-                  <span class="score-count">128 đánh giá</span>
+                  <span class="score-big" id="avgRating">0</span>
+                  <div class="stars" id="avgStars">★★★★★</div>
+                  <span class="score-count" id="reviewCountSummary">0 đánh giá</span>
                 </div>
                 <div class="rating-bars">
-                  <div class="rating-bar">
-                    <span>5★</span>
-                    <div class="bar">
-                      <div class="bar-fill" style="width: 78%"></div>
-                    </div>
-                    <span>78%</span>
-                  </div>
-                  <div class="rating-bar">
-                    <span>4★</span>
-                    <div class="bar">
-                      <div class="bar-fill" style="width: 14%"></div>
-                    </div>
-                    <span>14%</span>
-                  </div>
-                  <div class="rating-bar">
-                    <span>3★</span>
-                    <div class="bar">
-                      <div class="bar-fill" style="width: 6%"></div>
-                    </div>
-                    <span>6%</span>
-                  </div>
-                  <div class="rating-bar">
-                    <span>2★</span>
-                    <div class="bar">
-                      <div class="bar-fill" style="width: 1%"></div>
-                    </div>
-                    <span>1%</span>
-                  </div>
-                  <div class="rating-bar">
-                    <span>1★</span>
-                    <div class="bar">
-                      <div class="bar-fill" style="width: 1%"></div>
-                    </div>
-                    <span>1%</span>
-                  </div>
+                  <div class="rating-bar"><span>5★</span><div class="bar"><div class="bar-fill" style="width:78%"></div></div><span>78%</span></div>
+                  <div class="rating-bar"><span>4★</span><div class="bar"><div class="bar-fill" style="width:14%"></div></div><span>14%</span></div>
+                  <div class="rating-bar"><span>3★</span><div class="bar"><div class="bar-fill" style="width:6%"></div></div><span>6%</span></div>
+                  <div class="rating-bar"><span>2★</span><div class="bar"><div class="bar-fill" style="width:1%"></div></div><span>1%</span></div>
+                  <div class="rating-bar"><span>1★</span><div class="bar"><div class="bar-fill" style="width:1%"></div></div><span>1%</span></div>
                 </div>
               </div>
-              <div class="reviews-list">
-                <div class="review-card">
-                  <div class="review-header">
-                    <img src="https://i.pravatar.cc/48?img=5" alt="avatar" />
-                    <div>
-                      <strong>Nguyễn Thị Lan</strong>
-                      <span>Hà Nội · 3 ngày trước</span>
-                    </div>
-                    <div
-                      class="stars"
-                      style="margin-left: auto; font-size: 14px"
-                    >
-                      ★★★★★
-                    </div>
-                  </div>
-                  <p>
-                    "Nguyên liệu rất tươi, thịt bò mềm ngon. Con tôi ăn hết sạch
-                    bát cơm mà không cần dỗ. Sẽ đặt lại tuần sau!"
-                  </p>
-                  <div class="review-tags">
-                    <span>Nguyên liệu tươi</span><span>Dễ nấu</span
-                    ><span>Con cái thích</span>
-                  </div>
-                </div>
-                <div class="review-card">
-                  <div class="review-header">
-                    <img src="https://i.pravatar.cc/48?img=12" alt="avatar" />
-                    <div>
-                      <strong>Trần Minh Tuấn</strong>
-                      <span>TP.HCM · 1 tuần trước</span>
-                    </div>
-                    <div
-                      class="stars"
-                      style="margin-left: auto; font-size: 14px"
-                    >
-                      ★★★★★
-                    </div>
-                  </div>
-                  <p>
-                    "Giao đúng giờ, đóng gói đẹp. Công thức rõ ràng, người không
-                    biết nấu ăn như tôi cũng làm được dễ dàng."
-                  </p>
-                  <div class="review-tags">
-                    <span>Giao hàng nhanh</span><span>Đóng gói đẹp</span>
-                  </div>
-                </div>
-                <div class="review-card">
-                  <div class="review-header">
-                    <img src="https://i.pravatar.cc/48?img=25" alt="avatar" />
-                    <div>
-                      <strong>Phạm Thu Hương</strong>
-                      <span>Đà Nẵng · 2 tuần trước</span>
-                    </div>
-                    <div
-                      class="stars"
-                      style="margin-left: auto; font-size: 14px"
-                    >
-                      ★★★★☆
-                    </div>
-                  </div>
-                  <p>
-                    "Hương vị tuyệt vời, rau củ Đà Lạt rất tươi. Trừ 1 sao vì
-                    lần này giao hơi trễ 30 phút so với khung giờ đăng ký."
-                  </p>
-                  <div class="review-tags">
-                    <span>Hương vị ngon</span><span>Rau tươi</span>
-                  </div>
-                </div>
+              <div class="reviews-list" id="reviewsList">
+                <p style="color:#aaa;">Chưa có đánh giá nào.</p>
               </div>
               <!-- Write review -->
               <div class="write-review">
                 <h4>Viết đánh giá của bạn</h4>
                 <div class="star-picker" id="starPicker">
-                  <button class="star-pick" data-star="1" onclick="pickStar(1)">
-                    ★
-                  </button>
-                  <button class="star-pick" data-star="2" onclick="pickStar(2)">
-                    ★
-                  </button>
-                  <button class="star-pick" data-star="3" onclick="pickStar(3)">
-                    ★
-                  </button>
-                  <button class="star-pick" data-star="4" onclick="pickStar(4)">
-                    ★
-                  </button>
-                  <button class="star-pick" data-star="5" onclick="pickStar(5)">
-                    ★
-                  </button>
+                  <button class="star-pick" onclick="pickStar(1)">★</button>
+                  <button class="star-pick" onclick="pickStar(2)">★</button>
+                  <button class="star-pick" onclick="pickStar(3)">★</button>
+                  <button class="star-pick" onclick="pickStar(4)">★</button>
+                  <button class="star-pick" onclick="pickStar(5)">★</button>
                 </div>
-                <textarea
-                  placeholder="Chia sẻ cảm nhận của bạn về món ăn này..."
-                  rows="4"
-                  id="reviewText"
-                ></textarea>
-                <button class="btn btn--primary" onclick="submitReview()">
-                  Gửi đánh giá
-                </button>
+                <textarea placeholder="Chia sẻ cảm nhận của bạn về món ăn này..." rows="4" id="reviewText"></textarea>
+                <button class="btn btn--primary" onclick="submitReview()">Gửi đánh giá</button>
               </div>
             </div>
           </div>
@@ -852,30 +284,22 @@
       </section>
     </main>
 
-    <!-- STICKY BOTTOM BAR (mobile) -->
-    <div class="sticky-buy-bar" id="stickyBar">
+    <!-- STICKY BOTTOM BAR -->
+    <div class="sticky-buy-bar" id="stickyBar" style="display:none;">
       <div class="sticky-buy-bar__price">
-        <span id="stickyPrice">189,000đ</span>
+        <span id="stickyPrice">0đ</span>
         <small>/ gói</small>
       </div>
-      <button class="btn btn--primary" onclick="addDetailToCart()">
-        Thêm vào giỏ
-      </button>
+      <button class="btn btn--primary" onclick="addDetailToCart()">Thêm vào giỏ</button>
     </div>
 
     <footer class="footer">
       <div class="container footer__inner">
         <div class="footer__brand">
-          <a href="/index" class="navbar__logo" style="color: #fff">
+          <a href="/index" class="navbar__logo" style="color:#fff">
             <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
               <circle cx="18" cy="18" r="18" fill="#2d6a4f" />
-              <path
-                d="M10 22 Q14 12 18 18 Q22 24 26 14"
-                stroke="#fff"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                fill="none"
-              />
+              <path d="M10 22 Q14 12 18 18 Q22 24 26 14" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none" />
               <circle cx="18" cy="10" r="2.5" fill="#95d5b2" />
             </svg>
             <span>MealKit <em>Việt</em></span>
@@ -884,17 +308,18 @@
         </div>
         <div class="footer__links">
           <h4>Sản phẩm</h4>
-          <a href="/products">Thực đơn</a
-          ><a href="products.html?cat=family">Gói gia đình</a>
+          <a href="/products">Thực đơn</a>
+          <a href="products.html?cat=family">Gói gia đình</a>
         </div>
         <div class="footer__links">
           <h4>Công ty</h4>
-          <a href="/about">Về chúng tôi</a
-          ><a href="/contact">Liên hệ</a>
+          <a href="/about">Về chúng tôi</a>
+          <a href="/contact">Liên hệ</a>
         </div>
         <div class="footer__links">
           <h4>Hỗ trợ</h4>
-          <a href="#">FAQ</a><a href="#">Đổi trả</a>
+          <a href="#">FAQ</a>
+          <a href="#">Đổi trả</a>
         </div>
       </div>
       <div class="footer__bottom"><p>© 2025 MealKit Việt.</p></div>

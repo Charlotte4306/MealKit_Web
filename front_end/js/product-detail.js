@@ -14,11 +14,8 @@ async function initPage() {
     product = data.data;
     selectedPrice = product.price;
 
+    // ── Tiêu đề & breadcrumb ──
     document.title = product.name + " – ByteBloom MealKit";
-    const imgSrc = product.image
-      ? "/images/products/" + product.image
-      : "https://picsum.photos/seed/" + product.id + "/600/400";
-
     const nameEl = document.getElementById("pdName");
     if (nameEl) nameEl.textContent = product.name;
     const descEl = document.getElementById("pdShortDesc");
@@ -31,6 +28,10 @@ async function initPage() {
       badgeEl.style.display = product.badge ? "" : "none";
     }
 
+    // ── Ảnh chính ──
+    const imgSrc = product.image
+      ? "/images/products/" + product.image
+      : "https://picsum.photos/seed/" + product.id + "/600/400";
     const mainImg = document.getElementById("mainImg");
     if (mainImg) {
       mainImg.src = imgSrc;
@@ -40,8 +41,76 @@ async function initPage() {
       };
     }
 
+    // ── Specs ──
+    const cookTimeEl = document.getElementById("pdCookTime");
+    if (cookTimeEl) cookTimeEl.textContent = product.cook_time + " phút";
+    const servingsEl = document.getElementById("pdServings");
+    if (servingsEl) servingsEl.textContent = product.servings + " người";
+    const diffEl = document.getElementById("pdDifficulty");
+    if (diffEl) diffEl.textContent =
+      product.difficulty === "easy" ? "Dễ" :
+      product.difficulty === "medium" ? "Trung bình" : "Khó";
+    const calEl = document.getElementById("pdCalories");
+    if (calEl) calEl.textContent = product.calories + " kcal";
+
+    // ── Rating ──
+    const avgRating = parseFloat(product.avg_rating || 0).toFixed(1);
+    const ratingCountEl = document.getElementById("pdRatingCount");
+    if (ratingCountEl) ratingCountEl.textContent = `${avgRating} (${product.review_count} đánh giá)`;
+    const soldEl = document.getElementById("pdSold");
+    if (soldEl) soldEl.textContent = product.sold > 0 ? `· Đã bán ${product.sold}+` : "";
+    const avgRatingEl = document.getElementById("avgRating");
+    if (avgRatingEl) avgRatingEl.textContent = avgRating;
+    const reviewTabEl = document.getElementById("reviewCountTab");
+    if (reviewTabEl) reviewTabEl.textContent = product.review_count;
+    const reviewSummaryEl = document.getElementById("reviewCountSummary");
+    if (reviewSummaryEl) reviewSummaryEl.textContent = product.review_count + " đánh giá";
+
+    // ── Category ──
+    const catMap = { quick: "Món nhanh", family: "Gia đình", healthy: "Lành mạnh" };
+    const catEl = document.getElementById("pdCategory");
+    if (catEl) catEl.textContent = catMap[product.category] || product.category;
+
+    // ── Dinh dưỡng ──
+    const nutritionKcal = document.getElementById("nutritionKcal");
+    if (nutritionKcal) nutritionKcal.textContent = product.calories || "--";
+    const nutritionTable = document.getElementById("nutritionTable");
+    if (nutritionTable) {
+      const n = product.nutrition || {};
+      nutritionTable.innerHTML = `
+        <h4>Thành phần dinh dưỡng <small>(mỗi khẩu phần)</small></h4>
+        <table><tbody>
+          <tr><td>Năng lượng</td><td><strong>${product.calories || "--"} kcal</strong></td></tr>
+          <tr><td>Protein</td><td><strong>${n.protein || "38"}g</strong></td></tr>
+          <tr><td>Chất béo</td><td><strong>${n.fat || "14"}g</strong></td></tr>
+          <tr><td>Carbohydrate</td><td><strong>${n.carbs || "45"}g</strong></td></tr>
+          <tr><td>Chất xơ</td><td><strong>${n.fiber || "5"}g</strong></td></tr>
+          <tr><td>Natri</td><td><strong>${n.sodium || "620"}mg</strong></td></tr>
+        </tbody></table>`;
+    }
+
+    // ── Video ──
+    const videoSection = document.getElementById("videoSection");
+    if (videoSection) {
+      if (product.video_url) {
+        videoSection.innerHTML = `
+          <video controls preload="metadata"
+            poster="/images/products/${product.image}"
+            style="width:100%;border-radius:12px;max-height:480px;background:#000;">
+            <source src="${product.video_url}" type="video/mp4">
+            Trình duyệt không hỗ trợ video.
+          </video>
+          <p style="margin-top:12px;font-size:13px;color:#666;">
+            📱 Quét QR để xem video hướng dẫn nấu món này trên điện thoại!
+          </p>`;
+      } else {
+        videoSection.innerHTML = `<p style="color:#aaa;padding:32px 0;text-align:center;">Chưa có video hướng dẫn cho món này.</p>`;
+      }
+    }
+
     updatePriceDisplay();
     renderRelated(product.related || []);
+
   } catch (err) {
     console.error(err);
   }
@@ -67,8 +136,7 @@ function changeImg(btn, src) {
 
 function toggleWishlist(btn) {
   btn.classList.toggle("active");
-  const isActive = btn.classList.contains("active");
-  showToast(isActive ? "❤️ Đã thêm vào yêu thích" : "🤍 Đã bỏ yêu thích");
+  showToast(btn.classList.contains("active") ? "❤️ Đã thêm vào yêu thích" : "🤍 Đã bỏ yêu thích");
 }
 
 function selectServing(btn) {
@@ -95,7 +163,7 @@ function addDetailToCart() {
   localStorage.setItem("mealkit_cart", JSON.stringify(cartArr));
   const total = cartArr.reduce((s, i) => s + i.qty, 0);
   document.querySelectorAll("#cartBadge").forEach(el => el.textContent = total);
-  showToast("✓ Đã thêm " + qty + " gói \"" + product.name + "\" vào giỏ hàng");
+  showToast(`✓ Đã thêm ${qty} gói "${product.name}" vào giỏ hàng`);
 }
 
 function switchTab(btn) {
@@ -127,13 +195,15 @@ function renderRelated(related) {
   const grid = document.getElementById("relatedGrid");
   if (!grid || !related.length) return;
   grid.innerHTML = related.slice(0, 3).map(p => {
-    const imgSrc = p.image ? "/images/products/" + p.image : "https://picsum.photos/seed/" + p.id + "/400/300";
+    const imgSrc = p.image
+      ? "/images/products/" + p.image
+      : "https://picsum.photos/seed/" + p.id + "/400/300";
     return `
     <article class="product-card">
       <a href="product-detail.html?id=${p.id}" class="product-card__img">
         <img src="${imgSrc}" alt="${p.name}" loading="lazy"
              onerror="this.onerror=null;this.src='https://picsum.photos/seed/${p.id}/400/300'"/>
-        ${p.badge ? '<span class="product-card__badge">' + p.badge + "</span>" : ""}
+        ${p.badge ? `<span class="product-card__badge">${p.badge}</span>` : ""}
       </a>
       <div class="product-card__body">
         <h3 class="product-card__name"><a href="product-detail.html?id=${p.id}">${p.name}</a></h3>
@@ -146,6 +216,7 @@ function renderRelated(related) {
   }).join("");
 }
 
+// ── Sticky bar ──
 const heroSection = document.querySelector(".pd-hero");
 const stickyBar = document.getElementById("stickyBar");
 if (heroSection && stickyBar) {
